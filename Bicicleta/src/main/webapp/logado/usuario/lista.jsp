@@ -23,7 +23,7 @@
 			    	<fmt:message key="publishers.entity" />
 				</a> 
 				&nbsp;&nbsp;&nbsp;
-			    <a href="/<%=contextPath%>/livros"> 
+			    <a href="/<%=contextPath%>/cliente"> 
 			    	<fmt:message key="books.entity" />
 				</a> 
 				&nbsp;&nbsp;&nbsp;
@@ -63,7 +63,6 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <a
 									href="/<%= contextPath %>/usuarios/remocao?id=<c:out value='${usuario.id}' />"
-									onclick="return confirm('<fmt:message key="confirm.link" />');">
 									<fmt:message key="users.delete" />
 								</a>
 						</td>

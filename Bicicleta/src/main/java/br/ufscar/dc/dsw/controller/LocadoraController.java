@@ -107,7 +107,7 @@ public class LocadoraController extends HttpServlet {
 	private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String email = request.getParameter("email");
-		String cnpj = request.getParameter("CNPJ");
+		String cnpj = request.getParameter("cnpj");
 		String cidade = request.getParameter("cidade");
 		String senha = request.getParameter("senha");
 		String nome = request.getParameter("nome");
@@ -124,7 +124,7 @@ public class LocadoraController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		Long id = Long.parseLong(request.getParameter("id"));
 		String email = request.getParameter("email");
-		String cnpj = request.getParameter("CNPJ");
+		String cnpj = request.getParameter("cnpj");
 		String cidade = request.getParameter("cidade");
 		String senha = request.getParameter("senha");
 		String nome = request.getParameter("nome");
@@ -138,8 +138,8 @@ public class LocadoraController extends HttpServlet {
 	private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		Long id = Long.parseLong(request.getParameter("id"));
 
-		Locadora lcoadora = new Locadora(id);
-		dao.delete(lcoadora);
+		Locadora locadora = new Locadora(id);
+		dao.delete(locadora);
 		response.sendRedirect("lista");
 	}
 }

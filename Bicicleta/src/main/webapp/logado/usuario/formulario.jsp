@@ -19,11 +19,11 @@
 				<fmt:message key="users.welcome" />
 			</h1>
 			<h2>
-				<a href="/<%=contextPath%>/editoras"> 
+				<a href="/<%=contextPath%>/locadora"> 
 			    	<fmt:message key="publishers.entity" />
 				</a> 
 				&nbsp;&nbsp;&nbsp;
-			    <a href="/<%=contextPath%>/livros"> 
+			    <a href="/<%=contextPath%>/cliente"> 
 			    	<fmt:message key="books.entity" />
 				</a> 
 				&nbsp;&nbsp;&nbsp;
