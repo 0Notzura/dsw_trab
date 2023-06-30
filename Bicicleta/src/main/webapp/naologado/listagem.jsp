@@ -19,22 +19,10 @@
 				<fmt:message key="locadora.welcome" />
 			</h1>
 			<h2>
-				<a href="/<%=contextPath%>/clientes"> 
-					<fmt:message key="cliente.entity" />
-				</a> 
-				&nbsp;&nbsp;&nbsp;
-				<a href="/<%=contextPath%>/usuarios"> 
-					<fmt:message key="users.entity" />
-				</a> 
 				&nbsp;&nbsp;&nbsp;
 				<a href="${pageContext.request.contextPath}/logout.jsp"> 
 					<fmt:message key="exit.link" />
 				</a>
-				<br/>
-				<br/>
-				<a href="/<%=contextPath%>/locadoras/cadastro">
-					<fmt:message key="locadora.create" />
-				</a> 
 			</h2>
 			<h3><fmt:message key="locadora.list" /></h3>
 			<br/>
@@ -48,8 +36,6 @@
 					<th><fmt:message key="locadora.cidade" /></th>
 					<th><fmt:message key="locadora.senha" /></th>
 					<th><fmt:message key="locadora.nome" /></th>
-					<th><fmt:message key="actions.link" /></th>
-
 				</tr>
 				<c:forEach var="locadora" items="${requestScope.listalocadoras}">
 					<tr>

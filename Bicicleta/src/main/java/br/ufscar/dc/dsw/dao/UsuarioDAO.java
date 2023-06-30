@@ -130,7 +130,7 @@ public class UsuarioDAO extends GenericDAO {
         return usuario;
     }
     
-    public Usuario getbyLogin(String login) {
+    public Usuario getbyLogin(String login) {//PROCURA UM OBJ USUARIO NO BANCO DE DADOS,PEGA SEUS DADOS E CRIA UM OBJ USUARIO NO JAVA
         Usuario usuario = null;
 
         String sql = "SELECT * from Usuario WHERE login = ?";

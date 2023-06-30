@@ -21,40 +21,40 @@ public class IndexController extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Erro erros = new Erro();
-		if (request.getParameter("bOK") != null) {
+		if (request.getParameter("bOK") != null) {//VERIFICA SE O FORMS FOI PREENCHIDO
 			String login = request.getParameter("login");
 			String senha = request.getParameter("senha");
-			if (login == null || login.isEmpty()) {
+			if (login == null || login.isEmpty()) {//VERIFICA SE TEM LOGIN
 				erros.add("Login não informado!");
 			}
-			if (senha == null || senha.isEmpty()) {
+			if (senha == null || senha.isEmpty()) {//VERIFICA SE TEM SENHA
 				erros.add("Senha não informada!");
 			}
-			if (!erros.isExisteErros()) {
-				UsuarioDAO dao = new UsuarioDAO();
-				Usuario usuario = dao.getbyLogin(login);
-				if (usuario != null) {
-					if (usuario.getSenha().equalsIgnoreCase(senha)) {
-						request.getSession().setAttribute("usuarioLogado", usuario);
-						if (usuario.getPapel().equals("ADMIN")) {
+			if (!erros.isExisteErros()) {//CASO NÃO HAJA ERROS
+				UsuarioDAO dao = new UsuarioDAO();//CRIA UM NOVO OBJ USUARIO Q POSSUI OS CAMPOS (nome, login, senha, papel)
+				Usuario usuario = dao.getbyLogin(login);//RETORNA O USUARIO COM BASE NO LOGIN
+				if (usuario != null) {//CONFERE SE O USUARIO EXISTE NO BD
+					if (usuario.getSenha().equalsIgnoreCase(senha)) {//CONFERE SE A SENHA PASSADA BATE COM A SENHA NO BD
+						request.getSession().setAttribute("usuarioLogado", usuario);//PASSA O USUARIO COMO PARAMETRO NO REQUEST
+						if (usuario.getPapel().equals("ADMIN")) {//CONFERE PRA QUAL PAGINA SERA ENVIADO, A DO ADM OU DO USER
 							response.sendRedirect("usuarios/");
 						} else {
 							response.sendRedirect("cadastros/");
 						}
 						return;
-					} else {
+					} else {//MENSAGEM CASO O USUARIO EXISTA,MAS A SENHA ESTEJA ERRADA
 						erros.add("Senha inválida!");
 					}
-				} else {
+				} else {//CASO O USUARIO NÃO EXISTA
 					erros.add("Usuário não encontrado!");
 				}
 			}
 		}
-		request.getSession().invalidate();
+		request.getSession().invalidate();//quando sai do if, ou seja, logout, APAGA OS DADOS DA SEÇÃO
 
-		request.setAttribute("mensagens", erros);
+		request.setAttribute("mensagens", erros);//retorna a mensagem de erro no login
 
-		String URL = "/login.jsp";
+		String URL = "/login.jsp";//RETORNA PRO LOGIN
 		RequestDispatcher rd = request.getRequestDispatcher(URL);
 		rd.forward(request, response);
 	}

@@ -44,11 +44,11 @@ public class Locadora {
         this.email = email;
     }
 
-    public String getCNPJ() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCNPJ(String cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
