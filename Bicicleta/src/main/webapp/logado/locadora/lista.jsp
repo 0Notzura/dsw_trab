@@ -19,32 +19,48 @@
 				<fmt:message key="locadora.welcome" />
 			</h1>
 			<h2>
-				<a href="/<%=contextPath%>/clientes"> 
-					<fmt:message key="cliente.entity" />
-				</a> 
-				&nbsp;&nbsp;&nbsp;
-				<a href="/<%=contextPath%>/usuarios"> 
-					<fmt:message key="users.entity" />
-				</a> 
-				&nbsp;&nbsp;&nbsp;
-				<a href="${pageContext.request.contextPath}/logout.jsp"> 
-					<fmt:message key="exit.link" />
-				</a>
-				<br/>
-				<br/>
-				<a href="/<%=contextPath%>/locadoras/cadastro">
-					<fmt:message key="locadora.create" />
-				</a> 
+				<c:if test="${sessionScope.usuarioLogado != null}">
+						&nbsp;&nbsp;&nbsp;
+						<a href="/<%=contextPath%>/clientes"> 
+							<fmt:message key="cliente.entity" />
+						</a> 
+						&nbsp;&nbsp;&nbsp;
+						<a href="/<%=contextPath%>/usuarios"> 
+							<fmt:message key="users.entity" />
+						</a> 
+						&nbsp;&nbsp;&nbsp;
+						<a href="${pageContext.request.contextPath}/logout.jsp"> 
+							<fmt:message key="exit.link" />
+						</a>
+						<br/>
+						<br/>
+						<a href="/<%=contextPath%>/locadoras/cadastro">
+							<fmt:message key="locadora.create" />
+						</a> 
+					</c:if>
 			</h2>
 			<h3><fmt:message key="locadora.list" /></h3>
 			<br/>
+		</div>
+		<div align="center">
+			<p>
+			<form action="/<%= contextPath%>/listaLocadoras/listaPorCidade" method="get">
+				<fmt:message key="rental_company_show_by_city"/>: 
+				<select name="cidade">
+					<c:forEach var="cidade" items="${requestScope.listaCidades}">	
+						<option value ="${cidade}">${cidade}</option>
+					</c:forEach>
+				</select>
+				<input type="submit" value="<fmt:message key="choose"/>">
+			</p>
+			</form>
 		</div>
 		<div align="center">
 			<table border="1">
 				<tr>
 					<th><fmt:message key="locadora.ID" /></th>
 					<th><fmt:message key="locadora.email" /></th>
-					<th><fmt:message key="locadora.CNPJ" /></th>
+					<th><fmt:message key="locadora.cnpj" /></th>
 					<th><fmt:message key="locadora.cidade" /></th>
 					<th><fmt:message key="locadora.senha" /></th>
 					<th><fmt:message key="locadora.nome" /></th>
@@ -55,20 +71,24 @@
 					<tr>
 						<td><c:out value="${locadora.id}" /></td>
 						<td><c:out value="${locadora.email}" /></td>
-						<td><c:out value="${locadora.CNPJ}" /></td>
+						<td><c:out value="${locadora.cnpj}" /></td>
 						<td><c:out value="${locadora.cidade}" /></td>
 						<td><c:out value="${locadora.senha}" /></td>
 						<td><c:out value="${locadora.nome}" /></td>
 
-						<td>
-							<a href="/<%= contextPath %>/locadoras/edicao?id=<c:out value='${locadora.id}' />">
-								<fmt:message key="locadora.update" />
-							</a>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="/<%= contextPath %>/locadoras/remocao?id=<c:out value='${locadora.id}' />">
-								<fmt:message key="delete" />
-							</a>
-						</td>
+						
+						<c:if test="${sessionScope.usuarioLogado != null}">
+							<td>
+							
+								<a href="/<%= contextPath %>/locadoras/edicao?id=<c:out value='${locadora.id}' />">
+									<fmt:message key="locadora.update" />
+								</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="/<%= contextPath %>/locadoras/remocao?id=<c:out value='${locadora.id}' />">
+									<fmt:message key="delete" />
+								</a>
+							</td>
+					</c:if>
 						
 					</tr>
 				</c:forEach>

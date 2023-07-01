@@ -19,6 +19,7 @@ import java.util.Date;
 import br.ufscar.dc.dsw.dao.CadastroDAO;
 import br.ufscar.dc.dsw.dao.ClienteDAO;
 import br.ufscar.dc.dsw.dao.LocadoraDAO;
+import br.ufscar.dc.dsw.dao.UsuarioDAO;
 import br.ufscar.dc.dsw.domain.Cadastros;
 import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.domain.Locadora;
@@ -131,13 +132,17 @@ public class CadastrosController extends HttpServlet {
     	}
     	
     	try {
+            String login = request.getParameter("login");
 	        Long cnpj =Long.parseLong(request.getParameter("locadoras"));
 	        String dma = request.getParameter("data");
 	        String horario = request.getParameter("horario");
 	
 	        Locadora locadora = daoLocadora.get(cnpj);
+
+            UsuarioDAO usuarioDAO = new UsuarioDAO();//CRIA UM NOVO OBJ USUARIO Q POSSUI OS CAMPOS (nome, login, senha, papel)
+			Usuario usuario = usuarioDAO.getbyLogin(login);//RETORNA O USUARIO COM BASE NO LOGIN
 	        	                
-	        Cadastros cadastro = new Cadastros(dma,horario,clienteLogado, locadora, );//CRIA O OBJ LOGADO
+	        Cadastros cadastro = new Cadastros(dma,horario,clienteLogado, locadora,usuario );//CRIA O OBJ LOGADO
 
 	        Cadastros existente = dao.get(clienteLogado.getCpf(), locadora.getCnpj(), dma);//
 

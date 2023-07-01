@@ -68,7 +68,7 @@
 											<td>${cadastro.cliente.email}</td>
 											<td>${cadastro.cliente.telefone}</td>
 											<td>${cadastro.cliente.cpf}</td>
-											<td>${cadastro.locadora.CNPJ}</td>
+											<td>${cadastro.locadora.cnpj}</td>
 										</tr>
 									</c:forEach>
 								</table>

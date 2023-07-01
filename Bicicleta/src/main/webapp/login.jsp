@@ -48,6 +48,9 @@
                                 </tr>
                             </table>
                         </form>
+                        <a href="/Bicicleta/listaLocadoras"> 
+                            <fmt:message key="locadoras.entity" />
+                        </a> 
                     </body>
                 </fmt:bundle>
 
