@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ufscar.dc.dsw.dao.ClienteDAO;
 import br.ufscar.dc.dsw.dao.UsuarioDAO;
 import br.ufscar.dc.dsw.domain.Usuario;
+import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.util.Erro;
 
 @WebServlet(urlPatterns = "/usuarios/*")
@@ -111,8 +113,10 @@ public class UsuarioController extends HttpServlet {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String papel = request.getParameter("papel");
+		Long cliente_ID = Long.parseLong(request.getParameter("cliente_ID"));
+		Cliente cliente = new ClienteDAO().get(cliente_ID);
 		
-		Usuario usuario = new Usuario(nome, login, senha, papel);
+		Usuario usuario = new Usuario(nome, login, senha, papel, cliente);
 
 		dao.insert(usuario);
 		response.sendRedirect("lista");
@@ -127,8 +131,10 @@ public class UsuarioController extends HttpServlet {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String papel = request.getParameter("papel");
+		Long cliente_ID = Long.parseLong(request.getParameter("cliente_ID"));
+		Cliente cliente = new ClienteDAO().get(cliente_ID);
 		
-		Usuario usuario = new Usuario(id, nome, login, senha, papel);
+		Usuario usuario = new Usuario(id, nome, login, senha, papel, cliente);
 
 		dao.update(usuario);
 		response.sendRedirect("lista");

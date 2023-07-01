@@ -17,6 +17,9 @@
 	<c:if test="${usuario != null}">
 		<input type="hidden" name="id" value="<c:out value='${usuario.id}' />" />
 	</c:if>
+	<c:if test="${usuario != null}">
+		<input type="hidden" name="cliente_ID" value="<c:out value='${usuario.cliente.id}' />" />
+	</c:if>
 	<tr>
 		<td><label for="nome"><fmt:message key="user.name" />
 		</label></td>

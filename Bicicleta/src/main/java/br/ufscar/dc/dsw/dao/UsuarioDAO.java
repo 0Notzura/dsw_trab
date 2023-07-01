@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.domain.Usuario;
 
 public class UsuarioDAO extends GenericDAO {
@@ -38,7 +39,7 @@ public class UsuarioDAO extends GenericDAO {
 
         List<Usuario> listaUsuarios = new ArrayList<>();
 
-        String sql = "SELECT * from Usuario";
+        String sql = "SELECT * from Usuario u, Cliente c where u.CLIENTE_ID = c.ID ";
 
         try {
             Connection conn = this.getConnection();
@@ -51,7 +52,15 @@ public class UsuarioDAO extends GenericDAO {
                 String login = resultSet.getString("login");
                 String senha = resultSet.getString("senha");
                 String papel = resultSet.getString("papel");
-                Usuario usuario = new Usuario(id, nome, login, senha, papel);
+                Long cliente_ID = resultSet.getLong(6);
+                String email = resultSet.getString("email");
+                String telefone = resultSet.getString("telefone");            
+                String sexo = resultSet.getString("sexo");
+                int cpf = resultSet.getInt("cpf");
+                String nascimento = resultSet.getString("nascimento");
+                Cliente cliente = new Cliente(cliente_ID, email, telefone, senha, sexo, cpf, nascimento);
+                
+                Usuario usuario = new Usuario(id, nome, login, senha, papel, cliente);
                 listaUsuarios.add(usuario);
             }
 
@@ -104,7 +113,7 @@ public class UsuarioDAO extends GenericDAO {
     public Usuario get(Long id) {
         Usuario usuario = null;
 
-        String sql = "SELECT * from Usuario WHERE id = ?";
+        String sql = "SELECT * from Usuario u, Cliente c  WHERE u.id = ? and u.CLIENTE_ID=c.id";
 
         try {
             Connection conn = this.getConnection();
@@ -117,8 +126,10 @@ public class UsuarioDAO extends GenericDAO {
                 String login = resultSet.getString("login");
                 String senha = resultSet.getString("senha");
                 String papel = resultSet.getString("papel");
+                Long clinte_id = resultSet.getLong("CLIENTE_ID");
+                Cliente cliente = new ClienteDAO().get(clinte_id);
 
-                usuario = new Usuario(id, nome, login, senha, papel);
+                usuario = new Usuario(id, nome, login, senha, papel, cliente);
             }
 
             resultSet.close();
@@ -133,7 +144,7 @@ public class UsuarioDAO extends GenericDAO {
     public Usuario getbyLogin(String login) {//PROCURA UM OBJ USUARIO NO BANCO DE DADOS,PEGA SEUS DADOS E CRIA UM OBJ USUARIO NO JAVA
         Usuario usuario = null;
 
-        String sql = "SELECT * from Usuario WHERE login = ?";
+        String sql = "SELECT * from Usuario u, Cliente c WHERE u.login = ? and u.CLIENTE_ID=c.id";
 
         try {
             Connection conn = this.getConnection();
@@ -146,8 +157,10 @@ public class UsuarioDAO extends GenericDAO {
                 String nome = resultSet.getString("nome");
                 String senha = resultSet.getString("senha");
                 String papel = resultSet.getString("papel");
+                Long clinte_id = resultSet.getLong("CLIENTE_ID");
+                Cliente cliente = new ClienteDAO().get(clinte_id);
 
-                usuario = new Usuario(id, nome, login, senha, papel);
+                usuario = new Usuario(id, nome, login, senha, papel, cliente);
             }
 
             resultSet.close();

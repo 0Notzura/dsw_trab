@@ -7,26 +7,29 @@ public class Usuario {
 	private String login;
 	private String senha;
 	private String papel;
+	private Cliente cliente;
 
 	public Usuario(Long id) {
 		this.id = id;
 	}
 
-	public Usuario(String nome, String login, String senha, String papel) {
+	public Usuario(String nome, String login, String senha, String papel, Cliente cliente) {
 		super();
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
 		this.papel = papel;
+		this.cliente=cliente;
 	}
 
-	public Usuario(Long id, String nome, String login, String senha, String papel) {
+	public Usuario(Long id, String nome, String login, String senha, String papel, Cliente cliente) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
 		this.papel = papel;
+		this.cliente=cliente;
 	}
 
 	public Long getId() {
@@ -68,4 +71,12 @@ public class Usuario {
 	public void setPapel(String papel) {
 		this.papel = papel;
 	}
+
+	public Cliente getCliente(){
+		return cliente;
+	}
+	 public void SetCliente(Cliente cliente){
+		this.cliente=cliente;
+	}
 }
+	
