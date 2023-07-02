@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufscar.dc.dsw.domain.Cliente;
+import br.ufscar.dc.dsw.domain.Usuario;
 
 public class ClienteDAO extends GenericDAO {
 
@@ -130,6 +131,38 @@ public class ClienteDAO extends GenericDAO {
                 int cpf = resultSet.getInt("cpf");
                 String nascimento = resultSet.getString("nascimento");
                 cliente = new Cliente(id, email, telefone, senha, sexo, cpf, nascimento);
+            }
+
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return cliente;
+    }
+
+    public Cliente getbyEmail(String email) {//PROCURA UM OBJ USUARIO NO BANCO DE DADOS,PEGA SEUS DADOS E CRIA UM OBJ USUARIO NO JAVA
+        Cliente cliente = null;
+
+        String sql = "SELECT * from Cliente WHERE email = ?";
+
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+
+            statement.setString(1, email);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+            	Long id = resultSet.getLong("id");
+                String telefone = resultSet.getString("telefone");
+                String senha = resultSet.getString("senha");
+                String sexo = resultSet.getString("sexo");
+                int cpf = resultSet.getInt("cpf");
+                String nascimento = resultSet.getString("nascimento");
+                cliente = new Cliente(id, email, telefone, senha, sexo, cpf, nascimento);
+
+                
             }
 
             resultSet.close();

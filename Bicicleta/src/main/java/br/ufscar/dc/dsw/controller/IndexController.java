@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ufscar.dc.dsw.dao.ClienteDAO;
+import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.dao.UsuarioDAO;
 import br.ufscar.dc.dsw.domain.Usuario;
 import br.ufscar.dc.dsw.util.Erro;
@@ -33,6 +35,9 @@ public class IndexController extends HttpServlet {
 			if (!erros.isExisteErros()) {//CASO NÃO HAJA ERROS
 				UsuarioDAO dao = new UsuarioDAO();//CRIA UM NOVO OBJ USUARIO Q POSSUI OS CAMPOS (nome, login, senha, papel)
 				Usuario usuario = dao.getbyLogin(login);//RETORNA O USUARIO COM BASE NO LOGIN
+				ClienteDAO dao2 = new ClienteDAO();
+				Cliente cliente = dao2.getbyEmail(login);
+
 				if (usuario != null) {//CONFERE SE O USUARIO EXISTE NO BD
 					if (usuario.getSenha().equalsIgnoreCase(senha)) {//CONFERE SE A SENHA PASSADA BATE COM A SENHA NO BD
 						request.getSession().setAttribute("usuarioLogado", usuario);//PASSA O USUARIO COMO PARAMETRO NO REQUEST
@@ -45,8 +50,20 @@ public class IndexController extends HttpServlet {
 					} else {//MENSAGEM CASO O USUARIO EXISTA,MAS A SENHA ESTEJA ERRADA
 						erros.add("Senha inválida!");
 					}
-				} else {//CASO O USUARIO NÃO EXISTA
+				} else {//CASO O USUARIO NÃO EXISTA, VE SE EXISTE CLIENTE
+					if (cliente != null){
+						if(cliente.getSenha().equalsIgnoreCase(senha)){
+							request.getSession().setAttribute("clienteLogado", cliente);
+							response.sendRedirect("cadastros/");
+							return;
+
+						}else{
+							erros.add("Senha inválida!");
+						}
+					}else{
 					erros.add("Usuário não encontrado!");
+					
+				} 
 				}
 			}
 		}
