@@ -140,6 +140,24 @@ public class ClienteDAO extends GenericDAO {
         }
         return cliente;
     }
+    
+    public Long lastid(){
+
+        String sql = "SELECT last_insert_id() FROM Cliente";
+        Long lastid= null;
+        try{
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                lastid = Long.parseLong(resultSet.getString(1));
+            }
+
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }        
+        return lastid;
+    }
 }
 
         /* 

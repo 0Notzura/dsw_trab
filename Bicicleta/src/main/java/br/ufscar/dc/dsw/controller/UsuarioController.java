@@ -119,9 +119,23 @@ public class UsuarioController extends HttpServlet {
         Integer cpf = Integer.parseInt(request.getParameter("cpf"));
         String nascimento = request.getParameter("nascimento");
         Cliente cliente = new Cliente(email, telefone, senha, sexo, cpf,nascimento);
+
+
+
+		ClienteDAO dao2 = new ClienteDAO();
+
+		dao2.insert(cliente);
+
+		Long cliente_ID = dao2.lastid();
+
+		Cliente cliente2 = new Cliente(cliente_ID, email, telefone, senha, sexo, cpf,nascimento);
+
+		
+
+
 		
 		
-		Usuario usuario = new Usuario(nome, login, senha, papel, cliente);
+		Usuario usuario = new Usuario(nome, login, senha, papel, cliente2);
 
 		dao.insert(usuario);
 		response.sendRedirect("lista");

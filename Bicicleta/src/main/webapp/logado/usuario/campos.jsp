@@ -20,9 +20,7 @@
 	<c:if test="${usuario != null}">
 		<input type="hidden" name="cliente_ID" value="<c:out value='${usuario.cliente.id}' />" />
 	</c:if>
-	<c:if test="${usuario == null}">
-		<input type="hidden" name="cliente_ID" value="<c:out value='${usuario.cliente.id}' />" />
-	</c:if>
+	
 	
 	<tr>
 		<td><label for="nome"><fmt:message key="user.name" />
@@ -51,7 +49,7 @@
 	<tr>
 		<td><label for="telefone"> <fmt:message key="cliente.telefone" />
 		</label></td>
-		<td><input type="text" id="telefone" name="telefone" size="45" required
+		<td><input type="number" id="telefone" name="telefone" size="45" required
 			value="<c:out value='${usuario.cliente.telefone}' />" /></td>
 	</tr>
 	<tr>
