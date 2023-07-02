@@ -19,7 +19,7 @@
 		<input type="hidden" name="id" value="${cliente.id}" />
 	</c:if>
 	<tr>
-		<td><label for="titulo"> <fmt:message key="cliente.email" />
+		<td><label for="email"> <fmt:message key="cliente.email" />
 		</label></td>
 		<td><input type="text" id="email" name="email" size="45"
 			value="<c:out value='${cliente.email}' />" /></td>

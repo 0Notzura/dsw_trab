@@ -16,10 +16,12 @@ public class UsuarioDAO extends GenericDAO {
     public void insert(Usuario usuario) {
 
         String sql = "INSERT INTO Usuario (nome, login, senha, papel) VALUES (?, ?, ?, ?)";
+        String sql2 = "INSERT INTO Cliente (email, telefone, senha, sexo, cpf, nascimento) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
-            PreparedStatement statement = conn.prepareStatement(sql);;
+            PreparedStatement statement = conn.prepareStatement(sql);
+            PreparedStatement statement2 = conn.prepareStatement(sql);
 
             statement = conn.prepareStatement(sql);
             statement.setString(1, usuario.getNome());
@@ -29,6 +31,20 @@ public class UsuarioDAO extends GenericDAO {
             statement.executeUpdate();
 
             statement.close();
+
+            statement2 = conn.prepareStatement(sql2);
+            statement2.setString(1, usuario.getCliente().getEmail());
+            statement2.setString(2, usuario.getCliente().getTelefone());
+            statement2.setString(3, usuario.getCliente().getSenha());
+            statement2.setString(4, usuario.getCliente().getSexo());
+            statement2.setInt(5, usuario.getCliente().getCpf());
+            statement2.setString(6, usuario.getCliente().getNascimento());
+
+            statement2.executeUpdate();
+
+            statement2.close();
+
+
             conn.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);

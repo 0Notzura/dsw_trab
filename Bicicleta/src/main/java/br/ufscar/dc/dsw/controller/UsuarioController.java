@@ -113,8 +113,13 @@ public class UsuarioController extends HttpServlet {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String papel = request.getParameter("papel");
-		Long cliente_ID = Long.parseLong(request.getParameter("cliente_ID"));
-		Cliente cliente = new ClienteDAO().get(cliente_ID);
+		String email = request.getParameter("email");
+        String telefone = request.getParameter("telefone");        
+        String sexo = request.getParameter("sexo");
+        Integer cpf = Integer.parseInt(request.getParameter("cpf"));
+        String nascimento = request.getParameter("nascimento");
+        Cliente cliente = new Cliente(email, telefone, senha, sexo, cpf,nascimento);
+		
 		
 		Usuario usuario = new Usuario(nome, login, senha, papel, cliente);
 

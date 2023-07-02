@@ -20,6 +20,10 @@
 	<c:if test="${usuario != null}">
 		<input type="hidden" name="cliente_ID" value="<c:out value='${usuario.cliente.id}' />" />
 	</c:if>
+	<c:if test="${usuario == null}">
+		<input type="hidden" name="cliente_ID" value="<c:out value='${usuario.cliente.id}' />" />
+	</c:if>
+	
 	<tr>
 		<td><label for="nome"><fmt:message key="user.name" />
 		</label></td>
@@ -38,6 +42,38 @@
 		<td><input type="text" name="senha" size="20" required
 			value="<c:out value='${usuario.senha}' />" /></td>
 	</tr>
+	<tr>
+		<td><label for="email"> <fmt:message key="cliente.email" />
+		</label></td>
+		<td><input type="text" id="email" name="email" size="45"
+			value="<c:out value='${usuario.cliente.email}' />" /></td>
+	</tr>
+	<tr>
+		<td><label for="telefone"> <fmt:message key="cliente.telefone" />
+		</label></td>
+		<td><input type="text" id="telefone" name="telefone" size="45" required
+			value="<c:out value='${usuario.cliente.telefone}' />" /></td>
+	</tr>
+	<tr>
+		<td><label for="sexo"> <fmt:message key="cliente.sexo" />
+		</label></td>
+		<td><input type="text" id="sexo" name="sexo" required
+			value="<c:out value='${usuario.cliente.sexo}' />" /></td>
+	</tr>
+	<tr>
+		<td><label for="cpf"> <fmt:message key="cliente.cpf" />
+		</label></td>
+		<td><input type="number" id="cpf" name="cpf" size="40" required
+			value="<c:out value='${usuario.cliente.cpf}' />" /></td>
+	</tr>
+	<tr>
+		<td><label for="nascimento"> <fmt:message key="cliente.nascimento" />
+		</label></td>
+		<td><input type="date" id="nascimento" name="nascimento" required
+			value="<c:out value='${usuario.cliente.nascimento}' />" /></td>
+	</tr>
+
+
 	<tr>
 		<td><label for="papel"><fmt:message key="user.role" />
 		</label></td>
