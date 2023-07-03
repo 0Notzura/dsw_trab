@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ufscar.dc.dsw.dao.LocadoraDAO;
 import br.ufscar.dc.dsw.dao.UsuarioDAO;
 import br.ufscar.dc.dsw.domain.Usuario;
+import br.ufscar.dc.dsw.domain.Locadora;
+
 import br.ufscar.dc.dsw.util.Erro;
 
 @WebServlet(name = "Index", urlPatterns = { "/index.jsp", "/logout.jsp" })
@@ -21,40 +24,44 @@ public class IndexController extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Erro erros = new Erro();
-		if (request.getParameter("bOK") != null) {//VERIFICA SE O FORMS FOI PREENCHIDO
-			String login = request.getParameter("login");
+		if (request.getParameter("bOK") != null) {
+			String email = request.getParameter("login");
 			String senha = request.getParameter("senha");
-			if (login == null || login.isEmpty()) {//VERIFICA SE TEM LOGIN
+			if (email == null || email.isEmpty()) {
 				erros.add("Login não informado!");
 			}
-			if (senha == null || senha.isEmpty()) {//VERIFICA SE TEM SENHA
+			if (senha == null || senha.isEmpty()) {
 				erros.add("Senha não informada!");
 			}
-			if (!erros.isExisteErros()) {//CASO NÃO HAJA ERROS
-				UsuarioDAO dao = new UsuarioDAO();//CRIA UM NOVO OBJ USUARIO Q POSSUI OS CAMPOS (nome, login, senha, papel)
-				Usuario usuario = dao.getbyLogin(login);//RETORNA O USUARIO COM BASE NO LOGIN
-				if (usuario != null) {//CONFERE SE O USUARIO EXISTE NO BD
-					if (usuario.getSenha().equalsIgnoreCase(senha)) {//CONFERE SE A SENHA PASSADA BATE COM A SENHA NO BD
-						request.getSession().setAttribute("usuarioLogado", usuario);//PASSA O USUARIO COMO PARAMETRO NO REQUEST
-						if (usuario.getPapel().equals("ADMIN")) {//CONFERE PRA QUAL PAGINA SERA ENVIADO, A DO ADM OU DO USER
-							response.sendRedirect("usuarios/");
-						} else {
-							response.sendRedirect("cadastros/");
-						}
-						return;
-					} else {//MENSAGEM CASO O USUARIO EXISTA,MAS A SENHA ESTEJA ERRADA
-						erros.add("Senha inválida!");
+			if (!erros.isExisteErros()) {
+				UsuarioDAO usuarioDAO = new UsuarioDAO();
+				Usuario usuario = usuarioDAO.getbyLogin(email);
+
+				LocadoraDAO locadoraDAO = new LocadoraDAO();
+				Locadora locadora = locadoraDAO.getbyLogin(email);
+
+				if (usuario != null && usuario.getSenha().equalsIgnoreCase(senha)) {
+					request.getSession().setAttribute("usuarioLogado", usuario);
+					if (usuario.getPapel().equals("ADMIN")) {
+						response.sendRedirect("usuarios/");
+					} else {
+						response.sendRedirect("cadastros/");
 					}
-				} else {//CASO O USUARIO NÃO EXISTA
-					erros.add("Usuário não encontrado!");
+					return;
+				} else if (locadora != null && locadora.getSenha().equalsIgnoreCase(senha)) {
+					request.getSession().setAttribute("locadoraLogado", locadora);
+					response.sendRedirect("locadoras/listacadastro");
+					return;
+				} else {
+					erros.add("Usuário ou senha inválidos!");
 				}
 			}
 		}
-		request.getSession().invalidate();//quando sai do if, ou seja, logout, APAGA OS DADOS DA SEÇÃO
+		request.getSession().invalidate();// quando sai do if, ou seja, logout, APAGA OS DADOS DA SEÇÃO
 
-		request.setAttribute("mensagens", erros);//retorna a mensagem de erro no login
+		request.setAttribute("mensagens", erros);// retorna a mensagem de erro no login
 
-		String URL = "/login.jsp";//RETORNA PRO LOGIN
+		String URL = "/login.jsp";// RETORNA PRO LOGIN
 		RequestDispatcher rd = request.getRequestDispatcher(URL);
 		rd.forward(request, response);
 	}

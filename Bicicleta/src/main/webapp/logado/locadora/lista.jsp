@@ -58,7 +58,6 @@
 		<div align="center">
 			<table border="1">
 				<tr>
-					<th><fmt:message key="locadora.ID" /></th>
 					<th><fmt:message key="locadora.email" /></th>
 					<th><fmt:message key="locadora.cnpj" /></th>
 					<th><fmt:message key="locadora.cidade" /></th>
@@ -69,7 +68,6 @@
 				</tr>
 				<c:forEach var="locadora" items="${requestScope.listalocadoras}">
 					<tr>
-						<td><c:out value="${locadora.id}" /></td>
 						<td><c:out value="${locadora.email}" /></td>
 						<td><c:out value="${locadora.cnpj}" /></td>
 						<td><c:out value="${locadora.cidade}" /></td>
@@ -80,11 +78,11 @@
 						<c:if test="${sessionScope.usuarioLogado != null}">
 							<td>
 							
-								<a href="/<%= contextPath %>/locadoras/edicao?id=<c:out value='${locadora.id}' />">
+								<a href="/<%= contextPath %>/locadoras/edicao?cnpj=<c:out value='${locadora.cnpj}' />">
 									<fmt:message key="locadora.update" />
 								</a>
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="/<%= contextPath %>/locadoras/remocao?id=<c:out value='${locadora.id}' />">
+								<a href="/<%= contextPath %>/locadoras/remocao?cnpj=<c:out value='${locadora.cnpj}' />">
 									<fmt:message key="delete" />
 								</a>
 							</td>

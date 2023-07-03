@@ -50,7 +50,7 @@ public class UsuarioController extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-		
+
 		String action = request.getPathInfo();
 		if (action == null) {
 			action = "";
@@ -58,24 +58,24 @@ public class UsuarioController extends HttpServlet {
 
 		try {
 			switch (action) {
-			case "/cadastro":
-				apresentaFormCadastro(request, response);
-				break;
-			case "/insercao":
-				insere(request, response);
-				break;
-			case "/remocao":
-				remove(request, response);
-				break;
-			case "/edicao":
-				apresentaFormEdicao(request, response);
-				break;
-			case "/atualizacao":
-				atualize(request, response);
-				break;
-			default:
-				lista(request, response);
-				break;
+				case "/cadastro":
+					apresentaFormCadastro(request, response);
+					break;
+				case "/insercao":
+					insere(request, response);
+					break;
+				case "/remocao":
+					remove(request, response);
+					break;
+				case "/edicao":
+					apresentaFormEdicao(request, response);
+					break;
+				case "/atualizacao":
+					atualize(request, response);
+					break;
+				default:
+					lista(request, response);
+					break;
 			}
 		} catch (RuntimeException | IOException | ServletException e) {
 			throw new ServletException(e);
@@ -97,8 +97,8 @@ public class UsuarioController extends HttpServlet {
 
 	private void apresentaFormEdicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = dao.get(id);
+		int cpf = Integer.parseInt(request.getParameter("cpf"));
+		Usuario usuario = dao.get(cpf);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/usuario/formulario.jsp");
 		request.setAttribute("usuario", usuario);
 		dispatcher.forward(request, response);
@@ -107,12 +107,15 @@ public class UsuarioController extends HttpServlet {
 	private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		String nome = request.getParameter("nome");
-		String login = request.getParameter("login");
-		String senha = request.getParameter("senha");
-		String papel = request.getParameter("papel");
-		
-		Usuario usuario = new Usuario(nome, login, senha, papel);
+		        String nome = request.getParameter("nome");
+                String senha = request.getParameter("senha");
+                String papel = request.getParameter("papel");
+                String email = request.getParameter("email");
+                String telefone = request.getParameter("telefone");
+                String sexo = request.getParameter("sexo");
+                int cpf = Integer.parseInt(request.getParameter("cpf"));
+                String nascimento = request.getParameter("nascimento");
+                Usuario usuario = new Usuario( nome, senha, papel, email, telefone, sexo, cpf, nascimento);
 
 		dao.insert(usuario);
 		response.sendRedirect("lista");
@@ -122,22 +125,24 @@ public class UsuarioController extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		Long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
-		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String papel = request.getParameter("papel");
-		
-		Usuario usuario = new Usuario(id, nome, login, senha, papel);
+		String email = request.getParameter("email");
+		String telefone = request.getParameter("telefone");
+		String sexo = request.getParameter("sexo");
+		int cpf = Integer.parseInt(request.getParameter("cpf"));
+		String nascimento = request.getParameter("nascimento");
+		Usuario usuario = new Usuario(nome, senha, papel, email, telefone, sexo, cpf, nascimento);
 
 		dao.update(usuario);
 		response.sendRedirect("lista");
 	}
 
 	private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		Long id = Long.parseLong(request.getParameter("id"));
+		int cpf = Integer.parseInt(request.getParameter("cpf"));
 
-		Usuario usuario = new Usuario(id);
+		Usuario usuario = new Usuario(cpf);
 		dao.delete(usuario);
 		response.sendRedirect("lista");
 	}

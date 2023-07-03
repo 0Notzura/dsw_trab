@@ -14,9 +14,7 @@
 			</c:otherwise>
 		</c:choose>
 	</caption>
-	<c:if test="${locadora != null}">
-		<input type="hidden" name="id" value="<c:out value='${locadora.id}' />" />
-	</c:if>
+	
 	<tr>
 		<td><label for="email"> <fmt:message key="locadora.email" />
 		</label></td>
@@ -26,8 +24,9 @@
 	<tr>
 		<td><label for="cnpj"><fmt:message key="locadora.cnpj" />
 		</label></td>
-		<td><input type="text" name="cnpj" size="45" required
-			value="<c:out value='${locadora.CNPJ}' />" /></td>
+		<td>
+			<input type="text" name="cnpj" size="45" required
+			value="<c:out value='${locadora.cnpj}' />" /></td>
 	</tr>
 	<tr>
 		<td><label for="Cidade"> <fmt:message key="locadora.cidade" />

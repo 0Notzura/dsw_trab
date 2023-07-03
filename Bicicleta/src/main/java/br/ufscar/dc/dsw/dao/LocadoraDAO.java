@@ -47,13 +47,12 @@ public class LocadoraDAO extends GenericDAO {
 
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                Long id = resultSet.getLong("id");
                 String email = resultSet.getString("email");
                 String cnpj = resultSet.getString("cnpj");
                 String cidade = resultSet.getString("cidade");
                 String senha = resultSet.getString("senha");
                 String nome = resultSet.getString("nome");
-                Locadora locadora = new Locadora(id, email,cnpj,cidade,senha, nome);
+                Locadora locadora = new Locadora(email, cnpj, cidade, senha, nome);
                 listalocadoras.add(locadora);
             }
 
@@ -66,14 +65,14 @@ public class LocadoraDAO extends GenericDAO {
         return listalocadoras;
     }
 
-   public void delete(Locadora locadora) {
-        String sql = "DELETE FROM Locadora where id = ?";
+    public void delete(Locadora locadora) {
+        String sql = "DELETE FROM Locadora where cnpj = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
-            statement.setLong(1, locadora.getId());
+            statement.setString(1, locadora.getCnpj());
             statement.executeUpdate();
 
             statement.close();
@@ -82,22 +81,20 @@ public class LocadoraDAO extends GenericDAO {
         }
     }
 
-
     public void update(Locadora locadora) {
-        String sql = "UPDATE Locadora SET email = ?, cnpj = ?, cidade = ?, senha = ?, nome = ?";
-        sql += " WHERE id = ?";
+        String sql = "UPDATE Locadora SET email = ?, cidade = ?, senha = ?, nome = ?";
+        sql += " WHERE cnpj = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
             statement.setString(1, locadora.getEmail());
-            statement.setString(2, locadora.getCnpj());
-            statement.setString(3, locadora.getCidade());
-            statement.setString(4, locadora.getSenha());
-            statement.setString(5, locadora.getNome());
-            statement.setLong(6, locadora.getId());
-            
+            statement.setString(2, locadora.getCidade());
+            statement.setString(3, locadora.getSenha());
+            statement.setString(4, locadora.getNome());
+            statement.setString(5, locadora.getCnpj());
+
             statement.executeUpdate();
 
             statement.close();
@@ -107,35 +104,37 @@ public class LocadoraDAO extends GenericDAO {
         }
     }
 
-    public Locadora get(Long id) {
-        Locadora locadora = null;
-        
-        String sql = "SELECT * from Locadora where id = ?";
+   public Locadora getbyLogin(String identifier) {
+    Locadora locadora = null;
 
-        try {
-            Connection conn = this.getConnection();
-            PreparedStatement statement = conn.prepareStatement(sql);
-            
-            statement.setLong(1, id);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                String email = resultSet.getString("email");
-                String cnpj = resultSet.getString("cnpj");
-                String cidade = resultSet.getString("cidade");
-                String senha = resultSet.getString("senha");
-                String nome = resultSet.getString("nome");
-                locadora = new Locadora(id,email, cnpj,cidade,senha, nome);
-            }
+    String sql = "SELECT * from Locadora where email = ? or cnpj = ?";
 
-            resultSet.close();
-            statement.close();
-            conn.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+    try {
+        Connection conn = this.getConnection();
+        PreparedStatement statement = conn.prepareStatement(sql);
+
+        statement.setString(1, identifier);
+        statement.setString(2, identifier);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            String email = resultSet.getString("email");
+            String cnpj = resultSet.getString("cnpj");
+            String cidade = resultSet.getString("cidade");
+            String senha = resultSet.getString("senha");
+            String nome = resultSet.getString("nome");
+            locadora = new Locadora(email, cnpj, cidade, senha, nome);
         }
-        return locadora;
+
+        resultSet.close();
+        statement.close();
+        conn.close();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
     }
-        public List<Locadora> getAllCidade(String cidade) {
+    return locadora;
+}
+
+    public List<Locadora> getAllCidade(String cidade) {
         List<Locadora> listaLocadoras = new ArrayList<>();
 
         String sql = "SELECT * from Locadora where cidade = ?";

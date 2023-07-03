@@ -5,24 +5,21 @@ public class Cadastros {
 	private Long id;
 	private String dia;
 	private String hora;
-	private Cliente cliente;
 	private Locadora locadora;
 	private Usuario usuario;
 
-	public Cadastros(Long id, String dia, String hora, Cliente cliente, Locadora locadora, Usuario usuario) {
+	public Cadastros(Long id, String dia, String hora, Locadora locadora, Usuario usuario) {
 		this.id = id;
 		this.dia = dia;
 		this.hora = hora;
-		this.cliente = cliente;
 		this.locadora = locadora;
 		this.usuario = usuario;
 	}
 
-	public Cadastros(String dia, String hora, Cliente cliente, Locadora locadora, Usuario usuario) {
+	public Cadastros(String dia, String hora,  Locadora locadora, Usuario usuario) {
 		super();
 		this.dia = dia;
 		this.hora = hora;
-		this.cliente = cliente;
 		this.locadora = locadora;
 		this.usuario = usuario;
 	}
@@ -49,14 +46,6 @@ public class Cadastros {
 
 	public void setHora(String hora) {
 		this.hora = hora;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
 	}
 
 	public Locadora getLocadora() {

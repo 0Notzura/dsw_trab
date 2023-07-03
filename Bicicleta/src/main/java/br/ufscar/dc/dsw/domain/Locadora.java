@@ -1,8 +1,6 @@
 package br.ufscar.dc.dsw.domain;
 
 public class Locadora {
-
-    private Long id;
     private String email;
     private String cnpj;
     private String cidade;
@@ -10,8 +8,8 @@ public class Locadora {
     private String nome;
 
 
-    public Locadora(Long id) {
-        this.id = id;
+    public Locadora(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public Locadora(String email, String cnpj, String cidade, String senha, String nome) {
@@ -23,18 +21,7 @@ public class Locadora {
 
     }
 
-    public Locadora(Long id, String email, String cnpj, String cidade, String senha, String nome) {
-        this(email, cnpj, cidade, senha, nome);
-        this.id = id;
-    }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;

@@ -22,7 +22,7 @@
 	</tr>
 	<tr>
 		<td><label for="cnpj"><fmt:message key="cadastro.cnpj" /></label></td>
-		<td><input type="text" name="cnpj" size="45" required value="<c:out value='${cadastro.CNPJ}' />" /></td>
+		<td><input type="text" name="cnpj" size="45" required value="<c:out value='${cadastro.cnpj}' />" /></td>
 	</tr>
 	<tr>
 		<td><label for="Cidade"> <fmt:message key="cadastro.cidade" /></label></td>

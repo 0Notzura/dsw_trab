@@ -1,4 +1,4 @@
-package br.ufscar.dc.dsw.dao;
+/* package br.ufscar.dc.dsw.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -71,13 +71,13 @@ public class ClienteDAO extends GenericDAO {
     }
 
     public void delete(Cliente cliente) {
-        String sql = "DELETE FROM Cliente where id = ?";
+        String sql = "DELETE FROM Cliente where CPF = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
-            statement.setLong(1, cliente.getId());
+            statement.setInt(1, cliente.getCpf());
             statement.executeUpdate();
 
             statement.close();
@@ -88,7 +88,7 @@ public class ClienteDAO extends GenericDAO {
     }
 
     public void update(Cliente cliente) {
-        String sql = "UPDATE Cliente SET email = ?, telefone = ?, senha = ?, sexo = ?, cpf = ?";
+        String sql = "UPDATE Cliente SET email = ?, telefone = ?, senha = ?, sexo = ?";
         sql += ", nascimento = ? WHERE id = ?";
 
         try {
@@ -99,9 +99,8 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(2, cliente.getTelefone());
             statement.setString(3, cliente.getSenha());
             statement.setString(4, cliente.getSexo());
-            statement.setInt(5, cliente.getCpf());
             statement.setString(6, cliente.getNascimento());
-            statement.setLong(7, cliente.getId());
+            statement.setInt(5, cliente.getCpf());
             statement.executeUpdate();
 
             statement.close();
@@ -167,4 +166,4 @@ public class ClienteDAO extends GenericDAO {
         return contador;
     }
 }
-*/
+*/ 

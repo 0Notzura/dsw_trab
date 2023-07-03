@@ -48,13 +48,13 @@
 											<fmt:message key="cadastro.hora" />
 										</th>
 										<th>
-											<fmt:message key="cadastro.cliente.email" />
+											<fmt:message key="cadastro.usuario.email" />
 										</th>
 										<th>
-											<fmt:message key="cadastro.cliente.telefone" />
+											<fmt:message key="cadastro.usuario.telefone" />
 										</th>
 										<th>
-											<fmt:message key="cadastro.cliente.cpf" />
+											<fmt:message key="cadastro.usuario.cpf" />
 										</th>
 										<th>
 											<fmt:message key="cadastro.locadora.cnpj" />
@@ -65,9 +65,9 @@
 											<td>${cadastro.id}</td>
 											<td>${cadastro.dia}</td>
 											<td>${cadastro.hora}</td>
-											<td>${cadastro.cliente.email}</td>
-											<td>${cadastro.cliente.telefone}</td>
-											<td>${cadastro.cliente.cpf}</td>
+											<td>${cadastro.usuario.email}</td>
+											<td>${cadastro.usuario.telefone}</td>
+											<td>${cadastro.usuario.cpf}</td>
 											<td>${cadastro.locadora.cnpj}</td>
 										</tr>
 									</c:forEach>

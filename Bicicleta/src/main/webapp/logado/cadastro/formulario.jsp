@@ -37,9 +37,9 @@
 							<fmt:message key=""/>:
 						</label> </br>
 
-						<select name="locadora" id="locadora">
+						<select name="locadora" id="locadora" required>
 							<c:forEach var="locadora" items="${listaLocadoras}">
-								<option value="${locadora.cnpj}">${locadora.cnpj}, ${locadora.nome}, ${locadora.cidade}</option>
+								<option value="locadora" >${locadora.cnpj}, ${locadora.nome}, ${locadora.cidade}</option>
 							</c:forEach>
 						</select> <br/>
 						
@@ -48,7 +48,7 @@
 						<label for="data">
 							<fmt:message key="date"/>:
 						</label> <br/>
-						<input type="date" id="data" name="data"> <br/>
+						<input type="date" id="data" name="data" required> <br/>
 						
 						<br/>
 						
@@ -56,7 +56,7 @@
 							<fmt:message key="horario"/>:
 						</label> </br>
 						
-						<select name="horario" id="horario">
+						<select name="horario" id="horario" required>
 							<option value="0">00:00 - 01:00</option>
 							<option value="1">01:00 - 02:00</option>
 							<option value="2">02:00 - 03:00</option>

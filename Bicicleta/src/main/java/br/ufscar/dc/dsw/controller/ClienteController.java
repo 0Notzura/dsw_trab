@@ -1,4 +1,4 @@
-package br.ufscar.dc.dsw.controller;
+/* package br.ufscar.dc.dsw.controller;
 
 import br.ufscar.dc.dsw.dao.LocadoraDAO;
 import br.ufscar.dc.dsw.dao.ClienteDAO;
@@ -151,10 +151,10 @@ public class ClienteController extends HttpServlet {
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Long id = Long.parseLong(request.getParameter("id"));
+        int cpf = Integer.parseInt(request.getParameter("CPF"));
 
-        Cliente cliente = new Cliente(id);
+        Cliente cliente = new Cliente(cpf);
         dao.delete(cliente);
         response.sendRedirect("lista");
     }
-}
+} */

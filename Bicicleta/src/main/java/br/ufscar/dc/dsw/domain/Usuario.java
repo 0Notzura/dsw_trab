@@ -2,39 +2,43 @@ package br.ufscar.dc.dsw.domain;
 
 public class Usuario {
 
-	private Long id;
 	private String nome;
-	private String login;
 	private String senha;
 	private String papel;
+	private String email;
+    private String telefone;
+    private int cpf;
+    private String sexo;
+    private String nascimento;
 
-	public Usuario(Long id) {
-		this.id = id;
+	public Usuario(int cpf) {
+		this.cpf = cpf;
 	}
 
-	public Usuario(String nome, String login, String senha, String papel) {
+	public Usuario(String nome, String senha, String papel,String email, String telefone, String sexo,
+            int cpf, String nascimento) {
 		super();
 		this.nome = nome;
-		this.login = login;
 		this.senha = senha;
 		this.papel = papel;
+		this.email = email;
+        this.telefone = telefone;
+        this.senha = senha;
+        this.sexo = sexo;
+        this.cpf = cpf;
+        this.nascimento = nascimento;
 	}
 
-	public Usuario(Long id, String nome, String login, String senha, String papel) {
+	public Usuario(int cpf, String nome, String senha, String papel) {
 		super();
-		this.id = id;
 		this.nome = nome;
-		this.login = login;
 		this.senha = senha;
 		this.papel = papel;
+		
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+	public int getId() {
+		return cpf;
 	}
 
 	public String getNome() {
@@ -44,23 +48,6 @@ public class Usuario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String password) {
-		this.senha = password;
-	}
-
 	public String getPapel() {
 		return papel;
 	}
@@ -68,4 +55,51 @@ public class Usuario {
 	public void setPapel(String papel) {
 		this.papel = papel;
 	}
+	public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(String nascimento) {
+        this.nascimento = nascimento;
+    }
 }
