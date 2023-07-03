@@ -24,7 +24,7 @@
 				</a> 
 				&nbsp;&nbsp;&nbsp;
 			    <a href="/<%=contextPath%>/clientes"> 
-			    	<fmt:message key="books.entity" />
+			    	<fmt:message key="clientes.entity" />
 				</a> 
 				&nbsp;&nbsp;&nbsp;
 				<a href="${pageContext.request.contextPath}/logout.jsp">

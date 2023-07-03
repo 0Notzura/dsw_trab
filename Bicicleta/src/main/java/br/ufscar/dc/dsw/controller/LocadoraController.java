@@ -3,6 +3,7 @@ package br.ufscar.dc.dsw.controller;
 import br.ufscar.dc.dsw.dao.LocadoraDAO;
 import br.ufscar.dc.dsw.domain.Locadora;
 import br.ufscar.dc.dsw.domain.Usuario;
+import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.util.Erro;
 
 import java.io.IOException;
@@ -37,11 +38,15 @@ public class LocadoraController extends HttpServlet {
 			throws ServletException, IOException {
 
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
+		Cliente cliente = (Cliente) request.getSession().getAttribute("clienteLogado");
 		Erro erros = new Erro();
 
 		if (usuario == null) {
-			response.sendRedirect(request.getContextPath());
+			if (cliente == null){
+				response.sendRedirect(request.getContextPath());
 			return;
+			}
+			
 		} else if (!usuario.getPapel().equals("ADMIN")) {
 			erros.add("Acesso não autorizado!");
 			erros.add("Apenas Papel [ADMIN] tem acesso a essa página");

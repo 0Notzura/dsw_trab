@@ -49,11 +49,15 @@ public class CadastrosController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");//PEGA O USUAIO PASSADO NA LINHA 38 DO INDEX
+        Cliente cliente = (Cliente) request.getSession().getAttribute("clienteLogado");
 		Erro erros = new Erro();
 
 		if (usuario == null) {//CASO SEJA NULO
-			response.sendRedirect(request.getContextPath());
-			return;
+            if (cliente == null){
+                response.sendRedirect(request.getContextPath());
+			    return;
+            } 
+			
 		} else if (!usuario.getPapel().equals("USER")) {//CASO SEJA ADM
 			erros.add("Acesso não autorizado!");
 			erros.add("Apenas Papel [USER] tem acesso a essa página");
@@ -61,7 +65,7 @@ public class CadastrosController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
 			rd.forward(request, response);
 			return;
-		}//COEÇA O TRATMENTO
+        }//COMEÇA O TRATMENTO
 		
         String action = request.getPathInfo();//PEGA A URL PRA SABER O QUE FAZER NO SWITCH
         if (action == null) {
@@ -87,7 +91,15 @@ public class CadastrosController extends HttpServlet {
 
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
-        List<Cadastros> listacadastros = dao.getAll(usuario);   
+        Cliente cliente = (Cliente) request.getSession().getAttribute("clienteLogado");
+        List<Cadastros> listacadastros = null;
+        if (usuario == null){
+            listacadastros = dao.getAll(cliente);  
+
+        }else{
+            listacadastros = dao.getAll(usuario);  
+        }
+        
         request.setAttribute("listacadastros", listacadastros);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cadastro/lista.jsp");
         dispatcher.forward(request, response);
@@ -152,7 +164,7 @@ public class CadastrosController extends HttpServlet {
 	        	erros.add("Esse horário está ocupado.");
 	    		
 	    		request.setAttribute("mensagens", erros);
-	            String URL = "/locacoes/cadastro";
+	            String URL = "/locadoras/cadastro";
 	            RequestDispatcher rd = request.getRequestDispatcher(URL);
 			    rd.forward(request, response);
 	            return;
@@ -163,13 +175,13 @@ public class CadastrosController extends HttpServlet {
     		erros.add("Erro nos dados preenchidos.");
     		
     		request.setAttribute("mensagens", erros);
-            String URL = "/locacoes";
+            String URL = "/locadoras";
             RequestDispatcher rd = request.getRequestDispatcher(URL);
 		    rd.forward(request, response);
             return;
     	}
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/locacoes/locacoes");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/locadoras/locadoras");
         dispatcher.forward(request, response);
     }
 }

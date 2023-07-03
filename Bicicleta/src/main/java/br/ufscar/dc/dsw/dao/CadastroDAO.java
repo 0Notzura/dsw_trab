@@ -109,4 +109,37 @@ public class CadastroDAO extends GenericDAO {
         }
         return listacadastros;
     }
+    public List<Cadastros> getAll(Cliente cliente) {
+
+        List<Cadastros> listacadastros = new ArrayList<>();
+
+        String sql = "SELECT * FROM Cadastros c WHERE c.cliente_id = ? ORDER BY c.ID";
+
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setLong(1, cliente.getId());//PREENCHE O PRIMEIRO ? DA QUERRY
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Long id = resultSet.getLong("id");
+                String dia = resultSet.getString("dia");
+                String hora = resultSet.getString("hora");
+                Long usuarioID = resultSet.getLong("usuario_id");
+                Long locadoraID = resultSet.getLong("locadora_id");
+
+                Usuario usuario = new UsuarioDAO().get(usuarioID); 
+                Locadora locadora = new LocadoraDAO().get(locadoraID);
+                Cadastros cadastro = new Cadastros(id, dia, hora, cliente, locadora, usuario);
+                listacadastros.add(cadastro);
+            }
+
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listacadastros;
+    }
 }
