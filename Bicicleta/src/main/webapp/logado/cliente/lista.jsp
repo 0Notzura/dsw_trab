@@ -21,7 +21,7 @@
 			</h1>
 			<h2>
 				<a href="/<%=contextPath%>/locadoras">
-					<fmt:message key="locadoras.entity" />
+					<fmt:message key="locadora.entity" />
 				</a>
 				&nbsp;&nbsp;&nbsp;
 				<a href="/<%=contextPath%>/usuarios"> 
@@ -63,11 +63,11 @@
 						<td>${cliente.nascimento}</td>
 						<td>
 							<a href="/<%= contextPath %>/clientes/edicao?id=${cliente.id}">
-								<fmt:message key="books.update" />
+								<fmt:message key="update" />
 							</a>
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="/<%= contextPath %>/clientes/remocao?id=${cliente.id}">
-								<fmt:message key="books.delete" />
+								<fmt:message key="delete" />
 							</a>
 						</td>						
 					</tr>

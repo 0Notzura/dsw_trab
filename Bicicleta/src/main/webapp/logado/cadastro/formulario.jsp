@@ -30,11 +30,11 @@
 				<form action="insercao" method="post">
 					<fieldset>
 						<legend>
-							<fmt:message key=""/>
+							<fmt:message key="informartions"/>
 						</legend>
 						
 						<label for="locadora">
-							<fmt:message key=""/>:
+							<fmt:message key="locadora"/>:
 						</label> </br>
 
 						<select name="locadora" id="locadora">

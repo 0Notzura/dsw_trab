@@ -20,11 +20,11 @@
 			</h1>
 			<h2>
 			    <a href="/<%=contextPath%>/locadoras"> 
-			    	<fmt:message key="locadoras.entity" />
+			    	<fmt:message key="locadora.entity" />
 				</a> 
 				&nbsp;&nbsp;&nbsp;
 			    <a href="/<%=contextPath%>/clientes"> 
-			    	<fmt:message key="clientes.entity" />
+			    	<fmt:message key="cliente.entity" />
 				</a> 
 				&nbsp;&nbsp;&nbsp;
 				<a href="${pageContext.request.contextPath}/logout.jsp">

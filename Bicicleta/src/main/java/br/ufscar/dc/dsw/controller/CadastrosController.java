@@ -80,6 +80,9 @@ public class CadastrosController extends HttpServlet {
                 case "/insercao":
                     insere(request, response);
                     break;
+                case "/lista":
+                    lista(request, response);
+                    break;
                 default:
                     lista(request, response);
                     break;
@@ -145,7 +148,7 @@ public class CadastrosController extends HttpServlet {
     	
     	try {
             String login = request.getParameter("login");
-	        Long cnpj =Long.parseLong(request.getParameter("locadoras"));
+	        Long cnpj =Long.parseLong(request.getParameter("locadora"));
 	        String dma = request.getParameter("data");
 	        String horario = request.getParameter("horario");
 	
@@ -181,7 +184,7 @@ public class CadastrosController extends HttpServlet {
             return;
     	}
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/locadoras/locadoras");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cadastro/lista.jsp");
         dispatcher.forward(request, response);
     }
 }

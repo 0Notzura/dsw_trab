@@ -7,10 +7,10 @@
 	<caption>
 		<c:choose>
 			<c:when test="${editora != null}">
-				<fmt:message key="publishers.update" />
+				<fmt:message key="informations" />
 			</c:when>
 			<c:otherwise>
-				<fmt:message key="publishers.create" />
+				<fmt:message key="informations" />
 			</c:otherwise>
 		</c:choose>
 	</caption>

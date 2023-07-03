@@ -20,7 +20,7 @@
 			</h1>
 			<h2>
 				<a href="/<%=contextPath%>/clientes"> 
-					<fmt:message key="books.entity" />
+					<fmt:message key="cliente.entity" />
 				</a> 
 				&nbsp;&nbsp;&nbsp;
 				<a href="/<%=contextPath%>/usuarios"> 

@@ -8,7 +8,7 @@
 	<caption>
 		<c:choose>
 			<c:when test="${cliente != null}">
-				<fmt:message key="cliente.update" />
+				<fmt:message key="update" />
 			</c:when>
 			<c:otherwise>
 				<fmt:message key="cliente.create" />

@@ -19,12 +19,12 @@
 				<fmt:message key="users.welcome" />
 			</h1>
 			<h2>
-				<a href="/<%=contextPath%>/locadora"> 
-			    	<fmt:message key="publishers.entity" />
+				<a href="/<%=contextPath%>/locadoras"> 
+			    	<fmt:message key="locadora.entity" />
 				</a> 
 				&nbsp;&nbsp;&nbsp;
-			    <a href="/<%=contextPath%>/cliente"> 
-			    	<fmt:message key="books.entity" />
+			    <a href="/<%=contextPath%>/clientes"> 
+			    	<fmt:message key="cliente.entity" />
 				</a> 
 				&nbsp;&nbsp;&nbsp;
 				<a href="${pageContext.request.contextPath}/logout.jsp">

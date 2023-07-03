@@ -16,7 +16,7 @@
 		%>
 		<div align="center">
 			<h1>
-				<fmt:message key="locadora.welcome" />
+				<fmt:message key="welcome" />
 			</h1>
 			<h2>
 				<c:if test="${sessionScope.usuarioLogado != null}">
@@ -81,7 +81,7 @@
 							<td>
 							
 								<a href="/<%= contextPath %>/locadoras/edicao?id=<c:out value='${locadora.id}' />">
-									<fmt:message key="locadora.update" />
+									<fmt:message key="update" />
 								</a>
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<a href="/<%= contextPath %>/locadoras/remocao?id=<c:out value='${locadora.id}' />">
