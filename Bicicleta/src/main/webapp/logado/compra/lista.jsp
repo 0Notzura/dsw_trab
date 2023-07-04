@@ -17,7 +17,7 @@
 		%>
 		<div align="center">
 			<h1>
-				<fmt:message key="purchases.welcome" />
+				<fmt:message key="welcome" />
 			</h1>
 			<h2>
 				<a href="/<%=contextPath%>/cadastros/cadastro"> 

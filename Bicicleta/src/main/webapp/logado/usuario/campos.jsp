@@ -8,39 +8,39 @@
 	<caption>
 		<c:choose>
 			<c:when test="${usuario != null}">
-				<fmt:message key="usuario.update" />
+				<fmt:message key="user.update" />
 			</c:when>
 			<c:otherwise>
-				<fmt:message key="usuario.create" />
+				<fmt:message key="user.create" />
 			</c:otherwise>
 		</c:choose>
 	</caption>
 	<tr>
-		<td><label for="titulo"> <fmt:message key="usuario.email" />
+		<td><label for="titulo"> <fmt:message key="user.email" />
 		</label></td>
 		<td><input type="text" id="email" name="email" size="45" required
 			value="<c:out value='${usuario.email}' />" /></td>
 	</tr>
 	<tr>
-		<td><label for="telefone"> <fmt:message key="usuario.telefone" />
+		<td><label for="telefone"> <fmt:message key="user.telefone" />
 		</label></td>
 		<td><input type="text" id="telefone" name="telefone" size="45" required
 			value="<c:out value='${usuario.telefone}' />" /></td>
 	</tr>
 	<tr>
-		<td><label for="sexo"> <fmt:message key="usuario.sexo" />
+		<td><label for="sexo"> <fmt:message key="user.sexo" />
 		</label></td>
 		<td><input type="text" id="sexo" name="sexo" required
 			value="<c:out value='${usuario.sexo}' />" /></td>
 	</tr>
 	<tr>
-		<td><label for="cpf"> <fmt:message key="usuario.cpf" />
+		<td><label for="cpf"> <fmt:message key="user.cpf" />
 		</label></td>
 		<td><input type="number" id="cpf" name="cpf" size="40" required
 			value="<c:out value='${usuario.cpf}' />" /></td>
 	</tr>
 	<tr>
-		<td><label for="nascimento"> <fmt:message key="usuario.nascimento" />
+		<td><label for="nascimento"> <fmt:message key="user.nascimento" />
 		</label></td>
 		<td><input type="date" id="nascimento" name="nascimento" required
 			value="<c:out value='${usuario.nascimento}' />" /></td>

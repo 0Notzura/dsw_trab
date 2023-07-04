@@ -16,12 +16,10 @@
 		%>
 		<div align="center">
 			<h1>
-				<fmt:message key="publishers.welcome" />
+				<fmt:message key="welcome" />
 			</h1>
 			<h2>
-				<a href="/<%=contextPath%>/clientes"> 
-					<fmt:message key="books.entity" />
-				</a> 
+				
 				&nbsp;&nbsp;&nbsp;
 				<a href="/<%=contextPath%>/usuarios"> 
 					<fmt:message key="users.entity" />

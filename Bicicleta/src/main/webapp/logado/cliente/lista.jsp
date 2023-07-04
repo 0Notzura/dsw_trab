@@ -17,11 +17,11 @@
 		%>
 		<div align="center">
 			<h1>
-				<fmt:message key="cliente.welcome" />
+				<fmt:message key="welcome" />
 			</h1>
 			<h2>
 				<a href="/<%=contextPath%>/locadoras">
-					<fmt:message key="locadoras.entity" />
+					<fmt:message key="locadora.entity" />
 				</a>
 				&nbsp;&nbsp;&nbsp;
 				<a href="/<%=contextPath%>/usuarios"> 

@@ -31,7 +31,7 @@
                             <table>
                                 <tr>
                                     <th>
-                                        <fmt:message key="user.login" />:
+                                        <fmt:message key="login" />:
                                     </th>
                                     <td><input type="text" name="login" value="${param.login}" /></td>
                                 </tr>
@@ -42,8 +42,9 @@
                                     <td><input type="password" name="senha" /></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
-                                        <input type="submit" name="bOK" value="<fmt:message key=" user.login" />">
+                                    
+                                    <td colspan="2" align="center"><input type="submit"
+                                            value="<fmt:message key="login" />" /></td>
                                     </td>
                                 </tr>
                             </table>

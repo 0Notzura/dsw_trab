@@ -16,7 +16,7 @@
 		%>
 		<div align="center">
 			<h1>
-				<fmt:message key="purchases.welcome" />
+				<fmt:message key="welcome" />
 			</h1>
 			<h2>
 				<a href="lista"> <fmt:message key="purchases.list" />

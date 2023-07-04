@@ -16,7 +16,7 @@
 		%>
 		<div align="center">
 			<h1>
-				<fmt:message key="books.welcome" />
+				<fmt:message key="welcome" />
 			</h1>
 			<h2>
 				<a href="/<%=contextPath%>/locadoras">

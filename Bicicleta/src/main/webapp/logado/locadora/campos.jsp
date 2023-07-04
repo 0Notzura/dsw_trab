@@ -6,10 +6,10 @@
 					<caption>
 						<c:choose>
 							<c:when test="${editora != null}">
-								<fmt:message key="publishers.update" />
+								<fmt:message key="update" />
 							</c:when>
 							<c:otherwise>
-								<fmt:message key="publishers.create" />
+								<fmt:message key="create" />
 							</c:otherwise>
 						</c:choose>
 					</caption>
@@ -61,7 +61,8 @@
 					<tr>
 
 					<tr>
-						<td colspan="2" align="center"><input type="submit" value="<fmt:message key=" save.link" />" />
+						<td colspan="2" align="center"><input type="submit"
+							value="<fmt:message key="save.link" />" /></td>
 						</td>
 					</tr>
 				</table>
