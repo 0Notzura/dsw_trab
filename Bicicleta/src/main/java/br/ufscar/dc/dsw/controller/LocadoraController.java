@@ -154,7 +154,7 @@ public class LocadoraController extends HttpServlet {
         locadoraExistente.setNome(nome);
 
         dao.update(locadoraExistente);
-        response.sendRedirect("listacadastro");
+        response.sendRedirect("lista");
     } 
 }
 	private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {

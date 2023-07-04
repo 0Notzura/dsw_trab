@@ -141,11 +141,9 @@ public class CadastrosController extends HttpServlet {
 
         try {
             String login = usuarioLogado.getEmail();
-            String[] cnpjs = request.getParameterValues("locadora");
+            String cnpj = request.getParameter("locadora");
             String dma = request.getParameter("data");
             String horario = request.getParameter("horario");
-
-            String cnpj = cnpjs != null && cnpjs.length > 0 ? cnpjs[0] : null;
 
             Locadora locadora = daoLocadora.getbyLogin(cnpj);
 
@@ -180,7 +178,7 @@ public class CadastrosController extends HttpServlet {
             return;
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastros/cadastro");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastros");
         dispatcher.forward(request, response);
     }
 }

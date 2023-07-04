@@ -39,7 +39,7 @@
 
 						<select name="locadora" id="locadora" required>
 							<c:forEach var="locadora" items="${listaLocadoras}">
-								<option value="locadora" >${locadora.cnpj}, ${locadora.nome}, ${locadora.cidade}</option>
+								<option value="${locadora.cnpj}" >${locadora.cnpj}, ${locadora.nome}, ${locadora.cidade}</option>
 							</c:forEach>
 						</select> <br/>
 						
