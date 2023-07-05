@@ -13,7 +13,7 @@ Guilherme ,
 
 **Instruções**
 
-Para o uso deste programa é necessário ter o MySQL instalado na máquina
+Para o uso deste programa é necessário ter o MySQL instalado na máquina e mudar a senha no GenericDAO para senha da MySQL máquina
 
 Executar as criações e inserções presentes no arquivo create.sql localizado em Bicicleta/db/MySQL/create.sql
 
