@@ -22,17 +22,20 @@ Com isso serão gerados dois usuários,
 **Usuário ADMIN**
 
 Login: abc@123.com.bc 
+
 Senha: ADMIN 
 
 **Usuário Normal**
 
 Login: def@123.com.bc
+
 Senha: USER
 
 E será gerado também uma locadora:
 
 **Locadora**
 Login: EMPRESA@GMAIL.COM
+
 Senha: ADMIN
 
 E uma locação.
