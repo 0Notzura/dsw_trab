@@ -20,10 +20,12 @@ Executar as criações e inserções no arquivo create.sql localizado em Bicicle
 Com isso serão gerados dois usuários, 
 
 **Usuário ADMIN**
+
 Login: abc@123.com.bc 
 Senha: ADMIN 
 
 **Usuário Normal**
+
 Login: def@123.com.bc
 Senha: USER
 
