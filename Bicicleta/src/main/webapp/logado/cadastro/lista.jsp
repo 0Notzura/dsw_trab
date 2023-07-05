@@ -16,7 +16,7 @@
 						<% String contextPath=request.getContextPath().replace("/", "" ); %>
 							<div align="center">
 								<h1>
-									<fmt:message key="cadastros.welcome" />
+									<fmt:message key="cadastro.welcome" />
 								</h1>
 								<h2>
 									<a href="/<%=contextPath%>/cadastros/cadastro">
@@ -48,13 +48,13 @@
 											<fmt:message key="cadastro.hora" />
 										</th>
 										<th>
-											<fmt:message key="cadastro.usuario.email" />
+											<fmt:message key="cadastro.email" />
 										</th>
 										<th>
-											<fmt:message key="cadastro.usuario.telefone" />
+											<fmt:message key="cadastro.telefone" />
 										</th>
 										<th>
-											<fmt:message key="cadastro.usuario.cpf" />
+											<fmt:message key="cadastro.cpf" />
 										</th>
 										<th>
 											<fmt:message key="cadastro.locadora.cnpj" />

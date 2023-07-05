@@ -27,7 +27,7 @@
 	<tr>
 		<td><label for="telefone"> <fmt:message key="usuario.telefone" />
 		</label></td>
-		<td><input type="text" id="telefone" name="telefone" size="45" required
+		<td><input type="number" id="telefone" name="telefone" size="45" required
 			value="<c:out value='${usuario.telefone}' />" /></td>
 	</tr>
 	<tr>

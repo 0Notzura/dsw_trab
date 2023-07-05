@@ -19,7 +19,6 @@
 				<fmt:message key="welcome" />
 			</h1>
 			<h2>
-				
 				&nbsp;&nbsp;&nbsp;
 				<a href="/<%=contextPath%>/usuarios"> 
 					<fmt:message key="users.entity" />

@@ -14,7 +14,7 @@ public class LocadoraDAO extends GenericDAO {
 
     public void insert(Locadora locadora) {
 
-        String sql = "INSERT INTO LOCADORA (email, cnpj, cidade, senha, nome) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO LOCADORA (EMAIL, CNPJ, CIDADE, SENHA, NOME) VALUES (?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
@@ -39,7 +39,7 @@ public class LocadoraDAO extends GenericDAO {
 
         List<Locadora> listalocadoras = new ArrayList<>();
 
-        String sql = "SELECT * from LOCADORA";
+        String sql = "SELECT * from Locadora";
 
         try {
             Connection conn = this.getConnection();
@@ -66,7 +66,7 @@ public class LocadoraDAO extends GenericDAO {
     }
 
     public void delete(Locadora locadora) {
-        String sql = "DELETE FROM LOCADORA where cnpj = ?";
+        String sql = "DELETE FROM LOCADORA WHERE CNPJ = ?";
 
         try {
             Connection conn = this.getConnection();
@@ -82,8 +82,8 @@ public class LocadoraDAO extends GenericDAO {
     }
 
     public void update(Locadora locadora) {
-        String sql = "UPDATE LOCADORA SET email = ?, cidade = ?, senha = ?, nome = ?";
-        sql += " WHERE cnpj = ?";
+        String sql = "UPDATE LOCADORA SET EMAIL = ?, CIDADE = ?, SENHA = ?, NOME = ?";
+        sql += " WHERE CNPJ = ?";
 
         try {
             Connection conn = this.getConnection();
@@ -107,7 +107,7 @@ public class LocadoraDAO extends GenericDAO {
    public Locadora getbyLogin(String identifier) {
     Locadora locadora = null;
 
-    String sql = "SELECT * from LOCADORA where email = ? or cnpj = ?";
+    String sql = "SELECT * FROM LOCADORA WHERE EMAIL = ? or CNPJ = ?";
 
     try {
         Connection conn = this.getConnection();
@@ -137,7 +137,7 @@ public class LocadoraDAO extends GenericDAO {
     public List<Locadora> getAllCidade(String cidade) {
         List<Locadora> listaLocadoras = new ArrayList<>();
 
-        String sql = "SELECT * from LOCADORA where cidade = ?";
+        String sql = "SELECT * FROM LOCADORA WHERE CIDADE = ?";
 
         try {
             // Conectando no banco e realizando consulta

@@ -1,6 +1,71 @@
-#erro {
-    width: 80%;
+/* CSS personalizado para a página */
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  table {
     margin: 0 auto;
-    border: 1px solid red;
-    background-color: beige;
-}
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  th {
+    text-align: right;
+    padding-right: 10px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  input[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  #erro {
+    background-color: #ffcccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ff9999;
+    border-radius: 3px;
+  }
+  
+  a.list-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+  }
+  
+  a.list-link:hover {
+    background-color: #45a049;
+  }
+
+  .btn-center {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  

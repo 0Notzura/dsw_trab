@@ -16,7 +16,7 @@ public class CadastroDAO extends GenericDAO {
     public Cadastros get(Integer cpf, String cnpj, String dia) {
         Cadastros cadastro = null;
 
-        String sql = "SELECT * FROM Cadastros WHERE CPF = ? " +
+        String sql = "SELECT * FROM CADASTROS WHERE CPF = ? " +
                 "AND cnpj = ? " +
                 "AND dia = ?";
 
@@ -49,7 +49,7 @@ public class CadastroDAO extends GenericDAO {
     }
 
     public void insert(Cadastros cadastro) {
-        String sql = "INSERT INTO CADASTROS (dia, hora, cpf, cnpj) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO CADASTROS (DIA, HORA, CPF, CNPJ) VALUES (?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
@@ -70,7 +70,7 @@ public class CadastroDAO extends GenericDAO {
     public List<Cadastros> getPorLocadora(String cnpj) {
         List<Cadastros> listacadastros = new ArrayList<>();
 
-        String sql = "SELECT * FROM CADASTROS WHERE cnpj = ?";
+        String sql = "SELECT * FROM CADASTROS WHERE CNPJ = ?";
 
         try {
             Connection conn = this.getConnection();
