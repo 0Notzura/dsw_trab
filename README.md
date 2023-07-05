@@ -46,12 +46,16 @@ E uma locação.
 - R1: CRUD de clientes (requer login de administrador)
   
 (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
-Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+Divisão na implementação da funcionalidade: 
+
+Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
 
 - R2: CRUD de locadoras (requer login de administrador
 
 (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
-Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+Divisão na implementação da funcionalidade: 
+
+Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
 
 - R3: Listagem de todos as locadoras em uma única página (não requer login)
   
