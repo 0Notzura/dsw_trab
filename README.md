@@ -87,7 +87,7 @@ Depois de fazer login, o cliente pode visualizar todas as suas locações gravad
 - R7: O sistema não deve permitir o cadastro de locações de um mesmo cliente ou de um mesma
 locadora em um mesmo dia/horário
 
-  () Implementado ( ) Parcialmente implementado (X) Não implementado
+  (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
   Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
 
