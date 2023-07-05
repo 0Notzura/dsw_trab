@@ -30,11 +30,11 @@
 				<form action="insercao" method="post">
 					<fieldset>
 						<legend>
-							<fmt:message key=""/>
+							<fmt:message key="cadastro.create"/>
 						</legend>
 						
 						<label for="locadora">
-							<fmt:message key=""/>:
+							<fmt:message key="locadora.list"/>:
 						</label> </br>
 
 						<select name="locadora" id="locadora" required>
@@ -85,7 +85,7 @@
 						
 						</br>
 						
-						<input type="submit" name="enviar" value="<fmt:message key="register"/>"/>
+						<input type="submit" name="enviar" value="<fmt:message key='Register'/>"/>
 					</fieldset>
 				</form>
 			</div>

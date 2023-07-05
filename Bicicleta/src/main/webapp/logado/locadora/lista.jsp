@@ -21,8 +21,6 @@
 			<h2>
 				<c:if test="${sessionScope.usuarioLogado != null}">
 						&nbsp;&nbsp;&nbsp;
-						
-						&nbsp;&nbsp;&nbsp;
 						<a href="/<%=contextPath%>/usuarios"> 
 							<fmt:message key="users.entity" />
 						</a> 
@@ -49,7 +47,7 @@
 						<option value ="${cidade}">${cidade}</option>
 					</c:forEach>
 				</select>
-				<input type="submit" value="<fmt:message key="choose"/>">
+				<input type="submit" value="<fmt:message key='choose'/>">
 			</p>
 			</form>
 		</div>
@@ -61,7 +59,9 @@
 					<th><fmt:message key="locadora.cidade" /></th>
 					<th><fmt:message key="locadora.senha" /></th>
 					<th><fmt:message key="locadora.nome" /></th>
-					<th><fmt:message key="actions.link" /></th>
+					<c:if test="${sessionScope.usuarioLogado != null}">
+						<th><fmt:message key="actions.link" /></th>
+					</c:if>
 
 				</tr>
 				<c:forEach var="locadora" items="${requestScope.listalocadoras}">

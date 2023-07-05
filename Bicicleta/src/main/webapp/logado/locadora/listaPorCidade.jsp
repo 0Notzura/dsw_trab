@@ -4,10 +4,10 @@ p<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <html>
-	<fmt:bundle basename="msgs">
+	<fmt:bundle basename="message">
 		<head>
 			<title>
-				<fmt:message key="rental_company_managing"/>
+				<fmt:message key="rental_company_show_by_city"/>
 			</title>
 		</head>
 		<body>
@@ -16,21 +16,21 @@ p<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
 			%>
 			<div align="center">
 				<h1>
-					<fmt:message key="rental_company_managing"/>
+					<fmt:message key="rental_company_show_by_city"/>
 				</h1>
 				<h2>
 					<a href="/<%=contextPath%>">
-						<fmt:message key="main_menu"/>
+						<fmt:message key="main.link"/>
 					</a>
 					<c:if test="${sessionScope.usuarioLogado != null}">
 						&nbsp;&nbsp;&nbsp;
 						<a href="/<%=contextPath%>/locadora/cadastro">
 							<fmt:message key="rental_company_new"/>
-						</a>
+						</a>	
 					</c:if>
 					&nbsp;&nbsp;&nbsp;
 					<a href="/<%=contextPath%>/listaLocadoras">
-						<fmt:message key="rental_company_show_all"/>
+						<fmt:message key="locadoras.entity"/>
 					</a>
 				</h2>
 			</div>
@@ -40,10 +40,10 @@ p<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
 						<fmt:message key="rental_company_list"/>
 					</caption>
 					<tr>
-						<th><fmt:message key="cnpj"/></th>
-						<th><fmt:message key="name"/></th>
-						<th><fmt:message key="email"/></th>
-						<th><fmt:message key="city"/></th>
+						<th><fmt:message key="locadora.cnpj"/></th>
+						<th><fmt:message key="locadora.nome"/></th>
+						<th><fmt:message key="locadora.email"/></th>
+						<th><fmt:message key="locadora.cidade"/></th>
 						<c:if test="${sessionScope.usuarioLogado != null}">
 							<th><fmt:message key="actions"/></th>
 						</c:if>

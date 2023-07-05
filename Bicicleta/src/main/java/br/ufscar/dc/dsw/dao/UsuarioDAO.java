@@ -14,7 +14,7 @@ public class UsuarioDAO extends GenericDAO {
 
     public void insert(Usuario usuario) {
 
-        String sql = "INSERT INTO USUARIO (nome, senha, papel, email, telefone, sexo, cpf, nascimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuario (nome, senha, papel, email, telefone, sexo, cpf, nascimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
@@ -41,7 +41,7 @@ public class UsuarioDAO extends GenericDAO {
 
         List<Usuario> listaUsuarios = new ArrayList<>();
 
-        String sql = "SELECT * from USUARIO";
+        String sql = "SELECT * from Usuario";
 
         try {
             Connection conn = this.getConnection();
@@ -71,7 +71,7 @@ public class UsuarioDAO extends GenericDAO {
     }
 
     public void delete(Usuario usuario) {
-        String sql = "DELETE FROM USUARIO where cpf = ?";
+        String sql = "DELETE FROM Usuario where cpf = ?";
 
         try {
             Connection conn = this.getConnection();
@@ -87,7 +87,7 @@ public class UsuarioDAO extends GenericDAO {
     }
 
     public void update(Usuario usuario) {
-        String sql = "UPDATE USUARIO SET nome = ?, papel = ? , email = ?, telefone = ?, senha = ?, sexo = ?,nascimento=? WHERE CPF = ?";
+        String sql = "UPDATE Usuario SET nome = ?, papel = ? , email = ?, telefone = ?, senha = ?, sexo = ?,nascimento=? WHERE CPF = ?";
 
         try {
             Connection conn = this.getConnection();
@@ -113,7 +113,7 @@ public class UsuarioDAO extends GenericDAO {
     public Usuario get(int cpf) {
         Usuario usuario = null;
 
-        String sql = "SELECT * from USUARIO WHERE CPF = ?";
+        String sql = "SELECT * from Usuario WHERE CPF = ?";
 
         try {
             Connection conn = this.getConnection();
@@ -145,7 +145,7 @@ public class UsuarioDAO extends GenericDAO {
                                              // USUARIO NO JAVA
         Usuario usuario = null;
 
-        String sql = "SELECT * from USUARIO WHERE email = ?";
+        String sql = "SELECT * from Usuario WHERE email = ?";
 
         try {
             Connection conn = this.getConnection();

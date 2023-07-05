@@ -6,10 +6,10 @@
 					<caption>
 						<c:choose>
 							<c:when test="${editora != null}">
-								<fmt:message key="update" />
+								<fmt:message key="locadora.update" />
 							</c:when>
 							<c:otherwise>
-								<fmt:message key="create" />
+								<fmt:message key="locadora.create" />
 							</c:otherwise>
 						</c:choose>
 					</caption>
@@ -27,11 +27,11 @@
 							</label></td>
 						<td>
 							<c:if test="${locadora != null}">
-								<input type="text" name="cnpj" value="<c:out value='${locadora.cnpj}' />" readonly	/>
+								<input type="number" name="cnpj" value="<c:out value='${locadora.cnpj}' />" size="18" readonly	/>
 							</c:if>
 							<c:if test="${locadora == null}">
 								<!-- O segundo if será executado apenas quando locadora for null -->
-								<input type="text" name="cnpj" value="" />
+								<input type="number" name="cnpj" value="" size="18" required/>
 							</c:if>
 						</td>
 					</tr>
@@ -61,8 +61,7 @@
 					<tr>
 
 					<tr>
-						<td colspan="2" align="center"><input type="submit"
-							value="<fmt:message key="save.link" />" /></td>
+						<td colspan="2" align="center"><input type="submit" value="<fmt:message key='save.link' />" />
 						</td>
 					</tr>
 				</table>
