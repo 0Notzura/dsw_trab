@@ -9,7 +9,7 @@ Prof. Dr. Delano Medeiros Beder
 Grupo:
 Giovani Guidini, 790862
 Gabriel Mansano Pires, 
-Guilherme , 
+Guilherme Theodoro 726531, 
 
 **Instruções**
 
@@ -87,7 +87,7 @@ Depois de fazer login, o cliente pode visualizar todas as suas locações gravad
 - R7: O sistema não deve permitir o cadastro de locações de um mesmo cliente ou de um mesma
 locadora em um mesmo dia/horário
 
-  (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+  () Implementado ( ) Parcialmente implementado (X) Não implementado
 
   Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
 
