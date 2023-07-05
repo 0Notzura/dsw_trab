@@ -15,7 +15,7 @@ Guilherme ,
 
 Para o uso deste programa é necessário ter o MySQL instalado na máquina
 
-Executar as criações e inserções no arquivo create.sql localizado em Bicicleta/db/MySQL/create.sql
+Executar as criações e inserções presentes no arquivo create.sql localizado em Bicicleta/db/MySQL/create.sql
 
 Com isso serão gerados dois usuários, 
 
