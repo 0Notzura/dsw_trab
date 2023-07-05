@@ -1,5 +1,12 @@
-# dsw_trab
-Checklist atrasado:
-Ri, R2, R3 ,R4, R6 e R9 totalmente implementados;
-R7 e R8 não implementados.
-R5: parcialmente implementado(o email não é enviado).
+**Desenvolvimento de Software para Web - Trabalho 1**
+Universidade Federal de São Carlos – UFSCar
+Departamento de Computação
+1001504 - Desenvolvimento de Software para Web 1 – Trabalho 1
+Prof. Dr. Delano Medeiros Beder
+
+Grupo:
+Giovani Guidini, 790862
+Gabriel Mansano Pires, 
+Guilherme , 
+
+** Instruções **
