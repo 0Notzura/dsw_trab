@@ -8,7 +8,7 @@ Prof. Dr. Delano Medeiros Beder
 
 Grupo:
 Giovani Guidini, 790862
-Gabriel Mansano Pires, 
+Gabriel Mansano Pires, 790951 
 Guilherme Theodoro 726531, 
 
 **Instruções**
