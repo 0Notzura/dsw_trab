@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.domain.Locacao;
+import br.ufscar.dc.dsw.domain.Locadora;
 import br.ufscar.dc.dsw.security.UsuarioDetails;
 import br.ufscar.dc.dsw.service.spec.IClienteService;
 import br.ufscar.dc.dsw.service.spec.ILocacaoService;
@@ -62,12 +64,23 @@ public class LocacaoController {
 	}
 
 	@GetMapping("/listar")
-	public String listar(@RequestParam(required = false) String c, ModelMap model) {
-		List<Locacao> locacoes = locacaoService.buscarPorCliente(getClienteAutenticado());
+public String listar(@RequestParam(required = false) String c, ModelMap model) {
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    UsuarioDetails userDetails = (UsuarioDetails) authentication.getPrincipal();
 
-		model.addAttribute("locacoes", locacoes);
-		return "locacao/lista";
-	}
+    if (userDetails.hasRole("ROLE_CLIENTE")) {
+        Cliente clienteDoUsuario = clienteService.buscarPorId(userDetails.getId());
+        List<Locacao> locacoes = locacaoService.buscarPorCliente(clienteDoUsuario);
+        model.addAttribute("locacoes", locacoes);
+    } else if (userDetails.hasRole("ROLE_LOCADORA")) {
+        Locadora locadoraDoUsuario = locadoraService.buscarPorId(userDetails.getId());
+        List<Locacao> locacoes = locacaoService.buscarPorLocadora(locadoraDoUsuario);
+        model.addAttribute("locacoes", locacoes);
+    }
+
+    return "locacao/lista";
+}
+
 
 	@PostMapping("/salvar")
 	public String salvar(@Valid Locacao locacao, BindingResult result, RedirectAttributes attr, ModelMap model) {
@@ -78,14 +91,14 @@ public class LocacaoController {
 		
 		if (verificaDataHoraOcupada(locacao)) {
 			model.addAttribute("locadoras", locadoraService.buscarTodos());
-			attr.addFlashAttribute("fail", "Locação não inserida. Horário ocupado.");
+			attr.addFlashAttribute("fail", "locacao.create.fail");
 			return "redirect:/locacoes/cadastrar";
 		}
 		
 		locacao.setCliente(getClienteAutenticado());
 		locacaoService.salvar(locacao);
 		
-		attr.addFlashAttribute("sucess", "Locação inserida com sucesso.");
+		attr.addFlashAttribute("sucess", "locacao.create.sucess");
 		return "redirect:/locacoes/listar";
 	}
 
@@ -103,24 +116,17 @@ public class LocacaoController {
 			return "locacao/cadastro";
 		}
 		
-//		Se está editando o horário está disponível
-//		if (verificaDataHoraOcupada(locacao)) {
-//			model.addAttribute("locadoras", locadoraService.buscarTodos());
-//			attr.addFlashAttribute("fail", "Locação não inserida. Horário ocupado.");
-//			return "redirect:/locacoes/cadastrar";
-//		}
-		
 		locacao.setCliente(getClienteAutenticado());
 		locacaoService.salvar(locacao);
 		
-		attr.addFlashAttribute("sucess", "Locação inserida com sucesso.");
+		attr.addFlashAttribute("sucess", "locacao.edit.sucess");
 		return "redirect:/locacoes/listar";
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
+	public String excluir(@PathVariable("id") Long id, ModelMap model) {
 		locacaoService.excluir(id);
-		
+		model.addAttribute("sucess", "locacao.delete.sucess");
 		return "redirect:/locacoes/listar";
 	}
 }

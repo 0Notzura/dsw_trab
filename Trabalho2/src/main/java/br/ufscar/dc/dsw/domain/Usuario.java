@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 public class Usuario extends AbstractEntity<Long> {
   
 	@NotBlank
-    @Column(nullable = false, length = 30, unique = true)
+    @Column(nullable = false, length = 30, unique = false)
     private String username;
     
 	@NotBlank

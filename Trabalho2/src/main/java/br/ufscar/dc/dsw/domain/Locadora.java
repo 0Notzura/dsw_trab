@@ -24,7 +24,7 @@ public class Locadora extends Usuario {
 	
 	@NotBlank
 	@Size(min = 3, max = 60)
-	@Column(nullable = true, unique = true, length = 60)
+	@Column(nullable = true, unique = false, length = 60)
 	private String name;
 
 	@NotBlank

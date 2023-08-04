@@ -10,6 +10,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import br.ufscar.dc.dsw.validation.UniqueCPF;
+
 import java.util.List;
 
 
@@ -18,28 +21,26 @@ import java.util.List;
 @Table(name = "Cliente")
 public class Cliente extends Usuario {
 
-	@NotBlank
 	@Size(min = 14, max = 14)
 	@Column(nullable = true, unique = true, length = 60)
 	private String CPF;
 
-	@NotBlank(message = "{NotBlank.cliente.autor}")
+	@NotBlank(message = "{NotBlank.cliente.nome}")
 	@Size(max = 60)
 	@Column(nullable = true, length = 60)
 	private String name;
     
-	@NotBlank
+	@NotNull(message = "{NotNull.cliente.telefone}")
 	@Size(min = 11, max = 15)
 	@Column(nullable = true, unique = false, length = 60)
 	private String phone;
 	
-    @NotBlank
+	@NotNull(message = "{NotNull.cliente.genero}")
 	@Size(min = 1, max = 60)
 	@Column(nullable = true, unique = false, length = 60)
 	private String gender;
     
-	@NotNull(message = "{NotNull.cliente.editora}")
-	@JoinColumn(name = "editora_id")
+	@NotNull(message = "{NotNull.cliente.locadora}")
 	private String dataNascimento;
 
 	@OneToMany(mappedBy = "cliente")

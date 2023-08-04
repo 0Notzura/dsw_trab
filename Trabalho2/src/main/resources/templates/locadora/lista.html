@@ -11,47 +11,75 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
 						<i class="oi oi-caret-right"></i>
-						<span th:text="#{editora.listar.label}"></span>
+						<span th:text="#{locadora.listar.label}"></span>
 					</li>
 				</ul>
-				<a class="btn btn-primary btn-md" th:href="@{/editoras/cadastrar}" role="button"> 
+			</div>
+			<div sec:authorize="hasRole('ROLE_ADMIN')">
+				<a class="btn btn-primary btn-md" th:href="@{/locadoras/cadastrar}" role="button"> 
 					<span class="oi oi-plus" title="Cadastro" aria-hidden="true"></span> 
-					<span th:text="#{editora.cadastrar.label}"></span>
+					<span th:text="#{locadora.cadastrar.label}"></span>
 				</a>
 			</div>
+
 		</nav>
 
 		<div class="container" id="listagem">
 
 			<div th:replace="fragments/alert"></div>
+			
+			<div>
+				<p th:text="#{button.filter.city}"></p> 
+				
+				<form th:action="@{/locadoras/listar}" method="get">
+					<div class="input-group">
+						<select name="c" class="custom-select" id="c">
+							<option value="" th:text="#{filter.all}"></option>
+							<span th:each="cidade : ${cidades}">
+								<option th:value="${cidade}" th:text="${cidade}"></option>
+							</span>
+						</select>
+						<div class="input-group-append">
+						  <button class="btn btn-outline-secondary" type="submit" th:text="#{button.filter.label}"></button>
+						</div>
+					  </div>
+				</form>
+				</br>
+			</div>
 
 			<div class="table-responsive">
 				<table class="table table-striped table-hover table-sm">
 					<thead>
 						<tr>
 							<th>#</th>
-							<th th:text="#{editora.cnpj.label}"></th>
-							<th th:text="#{editora.nome.label}"></th>
+							<th th:text="#{locadora.cnpj.label}"></th>
+							<th th:text="#{locadora.nome.label}"></th>
+							<th th:text="#{locadora.username.label}"></th>
+							<th th:text="#{locadora.cidade.label}"></th>
+							<th th:text="#{locadora.role.label}"></th>
+
 							<th th:text="#{acao.label}"></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="editora : ${editoras}">
-							<td th:text="${editora.id}"></td>
-							<td th:text="${editora.CNPJ}"></td>
-							<td th:text="${editora.nome}"></td>
+						<tr th:each="locadora : ${locadoras}">
+							<td th:text="${locadora.id}"></td>
+							<td th:text="${locadora.CNPJ}"></td>
+							<td th:text="${locadora.name}"></td>
+							<td th:text="${locadora.username}"></td>
+							<td th:text="${locadora.cidade}"></td>
+							<td th:text="${locadora.role}"></td>
+
 							<td colspan="2">
-								<a class="btn btn-info btn-sm" th:href="@{/editoras/editar/{id} (id=${editora.id}) }"
-									role="button"> 
-									<span class="oi oi-brush" th:title="#{link.editar.label}" aria-hidden="true"> </span>
-								</a>
-								<button
-									th:id="${'btn_editoras/excluir/' + editora.id}"
-									type="button" class="btn btn-danger btn-sm"
-									data-toggle="modal" data-target="#myModal">
+								<div sec:authorize="hasRole('ROLE_ADMIN')">
+								<a class="btn btn-info btn-sm" th:href="@{/locadoras/editar/{id}(id=${locadora.id})}" role="button">
+									<span class="oi oi-brush" th:title="#{link.editar.label}" aria-hidden="true"></span>
+								</a>								
+								<button th:id="${#strings.concat('btn_locadoras/excluir/',locadora.id)}" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
 									<span class="oi oi-circle-x" th:title="#{link.excluir.label}" aria-hidden="true"></span>
-								</button>
+								</button>								
 							</td>
+								</div>
 						</tr>
 					</tbody>
 				</table>

@@ -61,5 +61,10 @@ public class UsuarioDetails implements UserDetails {
 	public Usuario getUsuario() {
 		return usuario;
 	}
+
+    public boolean hasRole(String role) {
+        return getAuthorities().stream()
+                .anyMatch(auth -> auth.getAuthority().equals(role));
+    }
     
 }

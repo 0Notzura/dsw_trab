@@ -27,6 +27,9 @@ public class Locacao extends AbstractEntity<Long> {
 	@Column(nullable = false, unique = false, length = 60)
 	private String dataRes;
 
+	@Column(nullable = false, unique = false)
+	private int hourRes;
+
 	public String getDataRes() {
 		return dataRes;
 	}
@@ -42,9 +45,6 @@ public class Locacao extends AbstractEntity<Long> {
 	public void setHourRes(int hourRes) {
 		this.hourRes = hourRes;
 	}
-
-	@Column(nullable = false, unique = false)
-	private int hourRes;
 	
 	public Cliente getCliente() {
 		return cliente;

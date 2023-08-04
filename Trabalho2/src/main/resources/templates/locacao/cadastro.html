@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html layout:decorate="~{layout}">
 <head>
+<meta charset="UTF-8" />
 </head>
 <body>
 	<section class="layout-content" layout:fragment="corpo">
@@ -8,12 +9,14 @@
 		<nav class="navbar navbar-expand-md bg-light">
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><i class="oi oi-caret-right"></i>
-						<span th:text="#{compra.cadastrar.label}"></span></li>
+					<li class="nav-item active">
+						<i class="oi oi-caret-right"></i>
+						<span th:text="#{locacao.cadastrar.label}"></span>
+					</li>
 				</ul>
-				<a class="btn btn-primary btn-md" th:href="@{/compras/listar}"
+				<a class="btn btn-primary btn-md" th:href="@{/locacoes/listar}"
 					role="button"> <span class="oi oi-spreadsheet" title="Listar"
-					aria-hidden="true"></span> <span th:text="#{compra.listar.label}"></span>
+					aria-hidden="true"></span> <span th:text="#{locacao.listar.label}"></span>
 				</a>
 			</div>
 		</nav>
@@ -22,52 +25,82 @@
 
 			<div th:replace="fragments/alert"></div>
 
-			<form th:action="@{/compras/salvar}" th:object="${compra}"
-				method="POST">
-
-				<div th:replace="fragments/validacao :: validacao"></div>
-
+			<form
+				th:action="${locacao.id == null} ? @{/locacoes/salvar} : @{/locacoes/editar}"
+				th:object="${locacao}" method="POST">
+				
 				<div class="form-row">
-					<div class="form-group col-md-12">
 						
-						<table class="table table-striped table-hover table-sm">
-							<thead>
-								<tr>
-									<th>#</th>
-									<th th:text="#{livro.titulo.label}"></th>
-									<th th:text="#{livro.autor.label}"></th>
-									<th th:text="#{livro.editora.label}"></th>
-									<th th:text="#{livro.ano.label}"></th>
-									<th th:text="#{livro.preco.label}"></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr th:each="livro : ${livros}">
-									<td>
-										<input type="radio" th:id="${livro.id}" name="livro" th:value="${livro.id}" th:field="*{livro}" required>
-									</td>
-									<td th:text="${livro.titulo}"></td>
-									<td th:text="${livro.autor}"></td>
-									<td th:text="${livro.editora.nome}"></td>
-									<td th:text="${livro.ano}"></td>
-									<td th:text="|R$ ${#numbers.formatDecimal(livro.preco,2,2,'COMMA')}|"></td>
-								</tr>
-							</tbody>
-						</table>
+					<div class="form-group col-md-6">
+						<label for="locadora" th:text="#{locacao.locadora.label}"></label> 
+						<select name="locadora" id="locadora" class="form-control"
+							autofocus="autofocus" th:classappend="${#fields.hasErrors('locadora')} ? is-invalid">
+							<option th:each="locadora : ${locadoras}"
+								th:value="${locadora.id}"  th:field="*{dataRes}">
+								<th th:text="${locadora.CNPJ + ', ' + locadora.name + ', ' + locadora.cidade}"></th>
+							</option>
+						</select>
 
 						<div class="invalid-feedback">
-							<span th:errors="*{livro}"></span>
+							<span th:errors="*{locadora}"></span>
+						</div>
+					</div>
+
+					<div class="form-group col-md-6">
+						<label for="dataRes" th:text="#{locacao.data.label}"></label> 
+						<input type="date" th:value="*{dataRes}" th:field="*{dataRes}"
+							name="dataRes" id="dataRes" class="form-control"
+							autofocus="autofocus" th:classappend="${#fields.hasErrors('dataRes')} ? is-invalid">
+						                               
+						<div class="invalid-feedback">
+							<span th:errors="*{dataRes}"></span>
+						</div>
+					</div>
+					
+					<div class="form-group col-md-6">
+						<label for="hourRes" th:text="#{locacao.hora.label}"></label> 
+						<select name="hourRes" id="hourRes" th:field="*{hourRes}"
+							class="form-control" autofocus="autofocus"
+							th:classappend="${#fields.hasErrors('hourRes')} ? is-invalid">
+							<option th:value="0">00:00 - 01:00</option>
+							<option th:value="1">01:00 - 02:00</option>
+							<option th:value="2">02:00 - 03:00</option>
+							<option th:value="3">03:00 - 04:00</option>
+							<option th:value="4">04:00 - 05:00</option>
+							<option th:value="5">05:00 - 06:00</option>
+							<option th:value="6">06:00 - 07:00</option>
+							<option th:value="7">07:00 - 08:00</option>
+							<option th:value="8">08:00 - 09:00</option>
+							<option th:value="9">09:00 - 10:00</option>
+							<option th:value="10">10:00 - 11:00</option>
+							<option th:value="11">11:00 - 12:00</option>
+							<option th:value="12">12:00 - 13:00</option>
+							<option th:value="13">13:00 - 14:00</option>
+							<option th:value="14">14:00 - 15:00</option>
+							<option th:value="15">15:00 - 16:00</option>
+							<option th:value="16">16:00 - 17:00</option>
+							<option th:value="17">17:00 - 18:00</option>
+							<option th:value="18">18:00 - 19:00</option>
+							<option th:value="19">19:00 - 20:00</option>
+							<option th:value="20">20:00 - 21:00</option>
+							<option th:value="21">21:00 - 22:00</option>
+							<option th:value="22">22:00 - 23:00</option>
+							<option th:value="23">23:00 - 00:00</option>
+						</select>
+						                               
+						<div class="invalid-feedback">
+							<span th:errors="*{hourRes}"></span>
 						</div>
 					</div>
 				</div>
-				
-				<input type="hidden" th:field="*{usuario}" id="usuario">
-				<input type="hidden" th:field="*{data}" id="data">
 
-				<button type="submit" th:text="#{button.salvar.label}"
-					class="btn btn-primary btn-sm"></button>
+				<input type="hidden" id="id" th:field="*{id}" />
+				<button type="submit" class="btn btn-primary btn-sm" th:text="#{button.salvar.label}">Salvar</button>
 			</form>
 		</div>
 	</section>
 </body>
 </html>
+
+
+

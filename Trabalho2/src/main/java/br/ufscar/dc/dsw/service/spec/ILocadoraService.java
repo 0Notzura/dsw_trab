@@ -14,5 +14,8 @@ public interface ILocadoraService {
 
 	List<Locadora> buscarPorCidade(String cidade);
 
+	List<Locadora> buscarPorLogado(String logado);
+
+
 	boolean locadoraTemLocacao(Long id);
 }
