@@ -1,4 +1,4 @@
-**Desenvolvimento de Software para Web - Trabalho 1**
+**Desenvolvimento de Software para Web - Trabalho 2**
 
 Universidade Federal de São Carlos – UFSCar
 
@@ -16,41 +16,50 @@ Guilherme Theodoro 726531,
 
 **Instruções**
 
-Para o uso deste programa é necessário ter o MySQL instalado na máquina e mudar a senha no GenericDAO para senha da MySQL máquina
+Para o uso deste programa é necessário ter o MySQL instalado na máquina e mudar a senha no Application.properties para senha da MySQL máquina
 
-Executar as criações e inserções presentes no arquivo create.sql localizado em Bicicleta/db/MySQL/create.sql
-
-Com isso serão gerados dois usuários, 
+Com isso serão gerados: 
 
 **Usuário ADMIN**
 
-Login: abc@123.com.bc 
+Que será responsável por fazer o CRUD de clientes de locadoras, assim como criar novos usuários ADMIN
 
-Senha: ADMIN 
+Login: admin 
 
-**Usuário Normal**
+Senha: admin 
 
-Login: def@123.com.bc
+**Usuário Cliente**
 
-Senha: USER
+Login: 123@gmail.com
 
-E será gerado também uma locadora:
+Senha: 1234
 
-**Locadora**
-Login: EMPRESA@GMAIL.COM
+Login: giovani@guidini.com.br
 
-Senha: ADMIN
+Senha: 1234
 
-E uma locação.
+**Usuário Locadora**
 
+Login: locadorasc@gmail.com
 
+Senha: 1234
+
+Login: locadorapira@gmail.com
+
+Senha: 1234
+
+Login: locadorapira1@gmail.com
+
+Senha: 1234
+
+**Locações**
 
 **Requisitos**
 - R1: CRUD de clientes (requer login de administrador)
   
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade:Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno (25%)
 
 - R2: CRUD de locadoras (requer login de administrador
 
