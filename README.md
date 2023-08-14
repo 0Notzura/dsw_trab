@@ -14,11 +14,11 @@ Gabriel Mansano Pires, 790951
 
 Guilherme Theodoro, 726531
 
-Bruno
+Bruno Matos de Souza, 769754
 
 **Instruções**
 
-Para o uso deste programa é necessário ter o MySQL instalado na máquina e mudar a senha no Application.properties para senha da MySQL máquina
+Para o uso deste programa é necessário ter o MySQL instalado na máquina e mudar a senha no Application.properties para senha do MySQL da máquina
 
 Com isso serão gerados: 
 
@@ -61,25 +61,25 @@ Senha: 1234
   
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno (25%)
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno Matos(25%)
 
 - R2: CRUD de locadoras (requer login de administrador)
 
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno Matos(25%)
 
 - R3: Listagem de todos as locadoras em uma única página (não requer login)
   
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno Matos(25%)
 
 - R4: Listagem de todos as locadoras por cidade (não requer login)
   
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno Matos(25%)
 
 - R5: Locação de uma bicicleta em uma locadora (requer login do cliente via e-mail + senha).
 Depois de fazer login, o cliente pode cadastrar uma locação. Para isso, deve escolher uma
@@ -89,41 +89,41 @@ sobre a locação realizada.
 
   () Implementado (X) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno Matos(25%)
 
 - R6: Listagem de todas as locações de um cliente (requer login do cliente via e-mail + senha).
 Depois de fazer login, o cliente pode visualizar todas as suas locações gravadas
 
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno Matos(25%)
 
 - R7: O sistema não deve permitir o cadastro de locações de um mesmo cliente ou de um mesma
 locadora em um mesmo dia/horário
 
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno Matos(25%)
 
 - R8: Listagem de todas as locações de uma locadora (requer login da locadora via e-mail + senha).
 Depois de fazer login, a locadora pode visualizar todas as suas locações gravadas
 
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno Matos(25%)
 
 - R9: O sistema deve ser internacionalizado em pelo menos dois idiomas: português + outro de
 sua escolha
 
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno Matos(25%)
 
 - R10: O sistema deve validar (tamanho, formato, etc) todas as informações (campos nos
 formulários) cadastradas e/ou editadas.
 
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-    Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33
+  Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno Matos(25%)
 
   
