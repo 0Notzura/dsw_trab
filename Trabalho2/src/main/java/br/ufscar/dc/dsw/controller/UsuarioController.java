@@ -59,7 +59,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/editar")
-	public String editar(@Valid Usuario usuario, BindingResult result, RedirectAttributes attr) {
+	public String editar(@Valid Usuario usuario, String novoPassword, BindingResult result, RedirectAttributes attr) {
 		
 		if (result.hasErrors()) {
 			return "usuario/cadastro";
