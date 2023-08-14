@@ -12,7 +12,9 @@ Giovani Guidini, 790862
 
 Gabriel Mansano Pires, 790951 
 
-Guilherme Theodoro 726531, 
+Guilherme Theodoro, 726531
+
+Bruno
 
 **Instruções**
 
@@ -61,7 +63,7 @@ Senha: 1234
 
   Divisão na implementação da funcionalidade:Giovani Guidini (25%), Guilherme Theodoro (25%), Gabriel Mansano (25%), Bruno (25%)
 
-- R2: CRUD de locadoras (requer login de administrador
+- R2: CRUD de locadoras (requer login de administrador)
 
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
@@ -115,4 +117,13 @@ sua escolha
 
   (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 
-  Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33%)
+  Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33
+
+- R10: O sistema deve validar (tamanho, formato, etc) todas as informações (campos nos
+formulários) cadastradas e/ou editadas.
+
+  (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+
+    Divisão na implementação da funcionalidade: Giovani Guidini (33%), Guilherme Theodoro (33%), Gabriel Mansano (33
+
+  
