@@ -11,7 +11,10 @@ import javax.validation.constraints.Size;
 
 import br.ufscar.dc.dsw.validation.UniqueCNPJ;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @SuppressWarnings("serial")
+@JsonIgnoreProperties(value = {"locacoes"})
 @Entity
 @Table(name = "Locadora")
 public class Locadora extends Usuario {

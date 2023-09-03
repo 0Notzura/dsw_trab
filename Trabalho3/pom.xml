@@ -12,7 +12,7 @@
 	<groupId>br.ufscar.dc.dsw</groupId>
 	<artifactId>Bicicletas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Bicicletaria</name>
+	<name>LocacaoBicicletas</name>
 	<description>Trabalho 2 da Disciplina Desenvovimento de Software para Web 1</description>
 
 	<properties>
@@ -140,11 +140,6 @@
 						<goals>
 							<goal>native2ascii</goal>
 						</goals>
-						<configuration>
-							<dest>${project.build.directory}/classes</dest>
-							<src>${project.resources[0].directory}</src>
-							<encoding>UTF-8</encoding>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
